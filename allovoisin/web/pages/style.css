@@ -5,12 +5,27 @@ body {
 }
 
 
+/**********/
+/* NAVBAR */
+/*************************************************************/
+
+
 .navbar {
     font-family: 'Gaegu', cursive;
     font-size: 22px;
-    z-index:10;	
+    z-index:10;
+    padding: 0;
 }
 
+.nav-item {
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+
+/**********/
+/* HEADER */
+/*************************************************************/
 
 .header-accueil {
     position: absolute;
@@ -30,6 +45,7 @@ body {
 .header-accueil h1{
     font-size: 60px;
     font-family: 'Gaegu', cursive;
+    margin-bottom: 20px;
 }
 
 .navbar-brand{
@@ -40,7 +56,12 @@ body {
     font-size: 25px;
 }
 
-/* le formulaire */
+
+/**************/
+/* FORMULAIRE */
+/*************************************************************/
+
+
 label {
 	color: black;
 }
@@ -83,7 +104,6 @@ input[id=proposer]:hover {
     background-color: #fff;
     color: #9b499e;
 }
-
 
 .formulaire {
 	border-radius: 5px;
