@@ -1,24 +1,22 @@
 body {
     height: 100vh;
     position: relative;
+    font-family: 'Raleway';
 }
 
 
 .navbar {
     font-family: 'Gaegu', cursive;
     font-size: 22px;
+    z-index:10;	
 }
 
 
 .header-accueil {
     position: absolute;
-    /* font-family: 'Annie Use Your Telescope', cursive; */
-    /* font-family: 'Schoolbell', cursive; */
-    font-family: 'Gaegu', cursive;
     font-weight: bold;
     bottom: 0;
     top: 0;
-    z-index:-10;
     padding-top:180px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9b499e+0,26b74b+100 */
     background: #9b499e; /* Old browsers */
@@ -30,5 +28,71 @@ body {
 }
 
 .header-accueil h1{
-    font-size: "
+    font-size: 60px;
+    font-family: 'Gaegu', cursive;
+}
+
+.navbar-brand{
+	font-size: 40px;
+}
+
+.header-accueil p{
+    font-size: 25px;
+}
+
+/* le formulaire */
+label {
+	color: black;
+}
+
+input[type=text]{
+	width: 100%;
+	padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border-color: #717474;
+    background-color: #c9cdcd;
+}
+
+input[type=submit] {
+	display: block;
+	color: white;
+    padding: 8px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[id=chercher] {
+    background-color: #26b74b;
+    border: solid 2px #26b74b;
+}
+
+input[id=proposer] {
+    background-color: #9b499e;
+    border: solid 2px #9b499e;
+}
+
+input[id=chercher]:hover {
+    background-color: #fff;
+    color: #26b74b;
+}
+
+input[id=proposer]:hover {
+    background-color: #fff;
+    color: #9b499e;
+}
+
+
+.formulaire {
+	border-radius: 5px;
+	background:white;
+	padding: 20px;
+	max-width: 400px;
+}
+
+.formulaire .row {
+	margin-left: 0;
+	margin-right: 0;
 }
