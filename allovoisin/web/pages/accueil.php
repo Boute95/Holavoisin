@@ -14,10 +14,19 @@
 		<div class="formulaire mx-auto">
 		<form method="post" action="">
 		    <label class="row">Ville</label>
-		    <input class="row mb-2" type="text" id="ville" name="ville" placeholder="???">
+		    <select class="row mb-2" type="text" id="ville" name="ville" placeholder="">
+		    	<option value="montpellier">Montpellier</option>
+		    	<option value="paris">Paris</option>
+		    	<option value="nice">Nice</option>
+		    </select>
 
 		    <label class="row">Catégorie</label>
-		    <input class="row mb-2" type="text" id="catégorie" name="catégorie" placeholder="???">
+		    <select class="row mb-2" type="text" id="catégorie" name="catégorie" placeholder="???">
+		    	<option value="montpellier">Montpellier</option>
+		    	<option value="paris">Paris</option>
+		    	<option value="nice">Nice</option>
+		    </select>
+
 		    <div class= "row mt-4">
 		    	<div class="col-6">
 			    	<input class="mx-auto" type="submit" id="chercher" value="Chercher">
