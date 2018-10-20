@@ -17,9 +17,33 @@ body {
     padding: 0;
 }
 
-.nav-item {
+.navbar .navbar-collapse,
+.navbar .navbar-collapse > ul {
+    align-self: stretch;
+}
+
+.navbar .nav-item {
     margin-right: 2px;
     margin-left: 2px;
+}
+
+.nav-link {
+    height: 100%;
+    padding: 15px 10px !important;
+}
+
+.navbar .active .nav-link {
+    background-color: #26b74b;
+    color: #fff !important;
+}
+
+.navbar .nav-link:hover {
+    background-color: #9b499e;
+    color: #fff !important;
+}
+
+.navbar .active .nav-link:hover {
+    background-color: #1D8C39;
 }
 
 
@@ -49,7 +73,7 @@ body {
 }
 
 .navbar-brand{
-	font-size: 40px;
+    font-size: 40px;
 }
 
 .header-accueil p{
@@ -63,12 +87,12 @@ body {
 
 
 label {
-	color: black;
+    color: black;
 }
 
 select{
-	width: 100%;
-	padding: 5px 8px;
+    width: 100%;
+    padding: 5px 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     border-color: #717474;
@@ -76,8 +100,8 @@ select{
 }
 
 input[type=submit] {
-	display: block;
-	color: white;
+    display: block;
+    color: white;
     padding: 8px 20px;
     margin: 8px 0;
     border: none;
@@ -106,13 +130,13 @@ input[id=proposer]:hover {
 }
 
 .formulaire {
-	border-radius: 5px;
-	background:white;
-	padding: 20px;
-	max-width: 400px;
+    border-radius: 5px;
+    background:white;
+    padding: 20px;
+    max-width: 400px;
 }
 
 .formulaire .row {
-	margin-left: 0;
-	margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
