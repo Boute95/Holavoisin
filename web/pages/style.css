@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     position: relative;
-    font-family: 'Raleway';
+    font-family: 'Niramit', sans-serif;
 }
 
 
@@ -15,6 +15,14 @@ body {
     font-size: 22px;
     z-index:10;
     padding: 0;
+    background-color: #ffffff20 !important;
+    box-shadow: 0 5px 10px 0 #44444420;
+}
+
+
+.navbar-brand{
+    color: #fff !important;
+    font-size: 40px;
 }
 
 .navbar .navbar-collapse,
@@ -22,28 +30,24 @@ body {
     align-self: stretch;
 }
 
-.navbar .nav-item {
-    margin-right: 2px;
-    margin-left: 2px;
-}
-
 .nav-link {
     height: 100%;
     padding: 15px 10px !important;
+    color: #fff !important;
 }
 
 .navbar .active .nav-link {
-    background-color: #26b74b;
+    background-color: #47bf66;
     color: #fff !important;
 }
 
 .navbar .nav-link:hover {
-    background-color: #9b499e;
+    background-color: #9c619e;
     color: #fff !important;
 }
 
 .navbar .active .nav-link:hover {
-    background-color: #1D8C39;
+    background-color: #37b858;
 }
 
 
@@ -57,12 +61,8 @@ body {
     bottom: 0;
     top: 0;
     padding-top:180px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9b499e+0,26b74b+100 */
-    background: #9b499e; /* Old browsers */
-    background: -moz-linear-gradient(-45deg, #9b499e 0%, #26b74b 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, #9b499e 0%,#26b74b 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, #9b499e 0%,#26b74b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b499e', endColorstr='#26b74b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background-image: url('../resources/img/accueil-bg.jpg');
+    background-size: cover;
     color:#fff;
 }
 
@@ -70,10 +70,6 @@ body {
     font-size: 60px;
     font-family: 'Gaegu', cursive;
     margin-bottom: 20px;
-}
-
-.navbar-brand{
-    font-size: 40px;
 }
 
 .header-accueil p{
@@ -110,23 +106,23 @@ input[type=submit] {
 }
 
 input[id=chercher] {
-    background-color: #26b74b;
-    border: solid 2px #26b74b;
+    background-color: #47bf66;
+    border: solid 2px #47bf66;
 }
 
 input[id=proposer] {
-    background-color: #9b499e;
-    border: solid 2px #9b499e;
+    background-color: #9c619e;
+    border: solid 2px #9c619e;
 }
 
 input[id=chercher]:hover {
     background-color: #fff;
-    color: #26b74b;
+    color: #47bf66;
 }
 
 input[id=proposer]:hover {
     background-color: #fff;
-    color: #9b499e;
+    color: #9c619e;
 }
 
 .formulaire {
