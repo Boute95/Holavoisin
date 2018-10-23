@@ -30,23 +30,23 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav ml-auto">
-			<li class="nav-item active">
+			
+			<li class="nav-item <?php if( basename($_SERVER['REQUEST_URI']) == 'accueil.php'){ echo 'active'; }?>" >
 			    <a class="nav-link" href="#">Accueil</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php if( basename($_SERVER['REQUEST_URI']) == 'chercher.php'){ echo 'active'; }?>">
 			    <a class="nav-link" href="#">Chercher</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php if( basename($_SERVER['REQUEST_URI']) == 'proposer.php'){ echo 'active'; }?>">
 			    <a class="nav-link" href="#">Proposer</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php if( basename($_SERVER['REQUEST_URI']) == 'connexion.php'){ echo 'active'; }?>">
 			    <a class="nav-link" href="#">Connexion</a>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item <?php if( basename($_SERVER['REQUEST_URI']) == 'inscription.php'){ echo 'active'; }?>">
 			    <a class="nav-link" href="#">Inscription</a>
 			</li>
 		    </ul>
 		</div>
 	    </div>
 	</nav>
-	

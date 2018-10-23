@@ -17,6 +17,9 @@ body {
     padding: 0;
     background-color: #ffffff20 !important;
     box-shadow: 0 5px 10px 0 #44444420;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 
@@ -57,21 +60,19 @@ body {
 /* HEADER */
 /*************************************************************/
 
-.header-accueil {
-    position: absolute;
+.header-accueil, .header-sous-page {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-weight: bold;
-    bottom: 0;
-    top: 0;
-    /* padding-top:180px; */
+    height: 100%;
     background-image: url('../resources/img/accueil-bg.jpg');
     background-size: cover;
-    color:#fff;
+    color: #fff;
 }
 
-.header-accueil h1{
+.header-accueil h1, .header-sous-page h1{
     font-size: 60px;
     font-family: 'Gaegu', cursive;
     margin-bottom: 20px;
@@ -81,7 +82,17 @@ body {
     font-size: 25px;
 }
 
+.header-sous-page{
+    top: auto;
+    bottom: auto;
+    height: 400px;
+}
 
+.formulaire-sous-page{
+    align-self: flex-end;
+    background-color: #9c619e;
+    border: 2px solid #47bf66;
+}
 /**************/
 /* FORMULAIRE */
 /*************************************************************/
@@ -137,7 +148,7 @@ input[id=proposer]:hover {
     background:white;
     padding: 20px;
     max-width: 400px;
-    box-shadow: 0 5px 10px 10px rgba(40, 40, 40, 0.2);
+    box-shadow: 0 10px 15px 5px rgba(40, 40, 40, 0.2);
 }
 
 .formulaire .row {
