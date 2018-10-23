@@ -22,7 +22,7 @@
 	</div>
 
 	<div class="col-4 px-4 m-auto">
-	    <input class="form-chercher-item form-chercher-button" type="submit" value="Chercher">
+	    <input id="form-chercher-bouton" class="form-chercher-item form-chercher-button" type="submit" value="Chercher">
 	</div>
 	
     </form>

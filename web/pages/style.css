@@ -102,7 +102,7 @@ select, input {
     padding: 5px 8px;
     border: 1px solid #777;
     border-radius: 4px;
-    background-color: #ccc;
+    background-color: #eee;
     color: #333;
 }
 
@@ -129,6 +129,17 @@ input[id=chercher]:hover {
 }
 
 input[id=proposer]:hover {
+    background-color: #fff;
+    color: #9c619e;
+}
+
+#form-chercher-bouton {
+    background-color: #9c619e;
+    border: solid 2px #9c619e;
+    color: #fff;
+}
+
+#form-chercher-bouton:hover {
     background-color: #fff;
     color: #9c619e;
 }
