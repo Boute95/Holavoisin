@@ -1,16 +1,15 @@
 <?php include("header.php"); ?>
 
-<header class="container-fluid header-sous-page text-center">
+<header class="container-fluid header-chercher text-center">
+    
 
     <h1>Rechercher un bien ou un service</h1>
-    
-</header>
 
-<div class="container-fluid container-formulaire">
-    <form class="row formulaire-sous-page text-center py-4">
+    
+    <form class="row formulaire-chercher text-center px-3 px-lg-5 py-4">
 	
-	<div class="col-4 px-3">
-	    <select class="my-auto">
+	<div class="col-4 px-4 m-auto">
+	    <select class="form-chercher-item">
 		<option value="choix1">Choix 1</option>
 		<option value="choix2">Choix 2</option>
 		<option value="choix3">Choix 3</option>
@@ -18,16 +17,18 @@
 	    </select>
 	</div>
 
-	<div class="col-4 px-3">
-	    <input class="my-auto" type="text" name="ville" placeholder="Ville">
+	<div class="col-4 px-4 m-auto">
+	    <input class="form-chercher-item" type="text" name="ville" placeholder="Ville">
 	</div>
 
-	<div class="col-4 px-3">
-	    <input type="submit" value="Chercher">
+	<div class="col-4 px-4 m-auto">
+	    <input class="form-chercher-item form-chercher-button" type="submit" value="Chercher">
 	</div>
 	
     </form>
-</div>
+    
+    
+</header>
 
 
 

@@ -15,14 +15,14 @@
 		<div class="formulaire mx-auto">
 		    <form method="post" action="">
 			<label class="row">Ville</label>
-			<select class="row mb-2" type="text" id="ville" name="ville" placeholder="">
+			<select class="row mb-2 form-accueil-item" type="text" id="ville" name="ville" placeholder="">
 		    	    <option value="montpellier">Montpellier</option>
 		    	    <option value="paris">Paris</option>
 		    	    <option value="nice">Nice</option>
 			</select>
 
 			<label class="row">Catégorie</label>
-			<select class="row mb-2" type="text" id="catégorie" name="catégorie" placeholder="???">
+			<select class="row mb-2 form-accueil-item" type="text" id="catégorie" name="catégorie" placeholder="???">
 		    	    <option value="montpellier">Montpellier</option>
 		    	    <option value="paris">Paris</option>
 		    	    <option value="nice">Nice</option>
@@ -30,10 +30,10 @@
 
 			<div class= "row mt-4">
 		    	    <div class="col-6">
-			    	<input class="mx-auto" type="submit" id="chercher" value="Chercher">
+			    	<input class="mx-auto form-accueil-bouton" type="submit" id="chercher" value="Chercher">
 			    </div>
 			    <div class="col-6">
-			  	<input class="mx-auto" type="submit" id="proposer" value="Proposer">
+			  	<input class="mx-auto form-accueil-bouton" type="submit" id="proposer" value="Proposer">
 			    </div>
 			</div>
 		    </form>
