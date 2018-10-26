@@ -48,17 +48,27 @@ $res = $dbh->query( $req );
 
 ?>
 
-<table>
-
+<div class="container">
+	<div class="row mt-5">
     <?php
-    
+
     foreach ( $res as $tuple ) {
-	echo $tuple['id'] . ' ' . $tuple['nom'] . '<br/>';
-    }
+	?>
+	<div class="col-4">
+    <div class="card" style="width: 18rem;">
+  		<img class="card-img-top" src="um.png" alt="image service">
+  		<div class="card-body">
+			<h5 class="card-title"><?php echo $tuple['nom'];?></h5>
+    		<p class="card-text"><?php echo $tuple['description'];?></p>
+		</div>
+	</div>
+	</div>
+	<?php  }?>
+	</div>
+</div>
+    
 
-    ?>
 
-</table>
 
 
 

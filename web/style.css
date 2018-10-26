@@ -184,3 +184,15 @@ input[id=proposer]:hover {
     max-width: 300px;
 }
 
+
+/*****************/
+/* BODY CHERCHER */
+/*************************************************************/
+.card {
+	height: 350px;
+}
+
+.card-img-top {
+	height: 200px;
+	width:auto;
+}
