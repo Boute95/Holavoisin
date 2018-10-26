@@ -31,18 +31,5 @@
 </header>
 
 
-<?php
-
-use AppBundle\Entity\Product;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface;
-
-$entityManager = $this->getDoctrine()->getManager();
-
-echo 'TEST';
-
-?>
-
-
 
 <?php include("footer.php"); ?>
