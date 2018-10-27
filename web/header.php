@@ -38,13 +38,13 @@
 			    <a class="nav-link" href="chercher.php">Chercher</a>
 			</li>
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'proposer.php')){ echo 'active'; }?>">
-			    <a class="nav-link" href="#">Proposer</a>
+			    <a class="nav-link" href="proposer.php">Proposer</a>
 			</li>
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'connexion.php')){ echo 'active'; }?>">
-			    <a class="nav-link" href="#">Connexion</a>
+			    <a class="nav-link" href="connexion.php">Connexion</a>
 			</li>
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'inscription.php')){ echo 'active'; }?>">
-			    <a class="nav-link" href="#">Inscription</a>
+			    <a class="nav-link" href="inscription.php">Inscription</a>
 			</li>
 		    </ul>
 		</div>

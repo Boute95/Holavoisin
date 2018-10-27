@@ -118,7 +118,8 @@ input[id=chercher] {
     border: solid 2px #47bf66;
 }
 
-input[id=proposer] {
+input[id=proposer],
+input[id=connection] {
     background-color: #9c619e;
     border: solid 2px #9c619e;
 }
@@ -128,7 +129,8 @@ input[id=chercher]:hover {
     color: #47bf66;
 }
 
-input[id=proposer]:hover {
+input[id=proposer]:hover,
+input[id=connection]:hover {
     background-color: #fff;
     color: #9c619e;
 }
@@ -184,6 +186,10 @@ input[id=proposer]:hover {
     max-width: 300px;
 }
 
+.form-connexion {
+    padding: 40px 60px;    
+}
+
 
 /*****************/
 /* BODY CHERCHER */
@@ -212,5 +218,10 @@ input[id=proposer]:hover {
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
     background-color: #eee;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 22px;
 }
 
