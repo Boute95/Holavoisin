@@ -54,9 +54,12 @@ $res = $dbh->query( $req );
 
 	foreach ( $res as $tuple ) {
 	?>
-	    <div class="col-4">
-		<a class="card" style="max-width: 21rem;" href="#">
-  		    <img class="card-img-top" src="um.png" alt="image service">
+	    <div class="col-12 col-lg-4 mb-5">
+		<a class="card mx-auto" style="max-width: 24rem;" href="#">
+  		    <div class="card-img-top">
+			<div class="card-img-top-child" style="background-image: url(resources/img/code.jpeg);">
+			</div>
+		    </div>
   		    <div class="card-body">
 			<h5 class="card-title"><?php echo $tuple['nom'];?></h5>
     			<p class="card-text"><?php echo $tuple['description'];?></p>

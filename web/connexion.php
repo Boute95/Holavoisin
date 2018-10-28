@@ -4,8 +4,8 @@
 
     <div class="container">
 
-	<div class="row mx-auto text-center">
-	    <h1>Connectez-vous pour echanger</h1>
+	<div class="row mx-auto my-4 text-center">
+	    <h1 class="mx-auto">Connectez-vous pour echanger</h1>
 	</div>
 
 	<div class= "row my-auto">
