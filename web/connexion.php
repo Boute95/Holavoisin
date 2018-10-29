@@ -1,5 +1,26 @@
 <?php include("header.php"); ?>
 
+<?php
+
+include("db-login.php");
+if(isset($_POST['identifiant']))
+    $identifiant = $_POST['identifiant'];
+if(isset($_POST['password']))
+    $password = md5($_POST['password']);
+$isUser = false;
+
+$req = "SELECT * FROM utilisateur WHERE nom = '$identifiant' AND mdp = '$password'";
+$res = $dbh->query($req);
+
+foreach ($res as $tuple) {
+    $isUser = true;
+}
+
+if($isUser) {
+    header('location: accueil.php');
+}
+?>
+
 <header class="container-fluid header-accueil">
 
     <div class="container">
@@ -17,7 +38,11 @@
 
 		<label class="row">Mot de passe</label>
 		<input class="row mb-2" type="password" name="password" placeholder="Mot de passe">
-
+		<?php if((isset($_POST['identifiant']) || isset($_POST['password']))
+			 && !$isUser){
+		    echo "<p class='erreur-connexion'>Identifiant ou mot de passe incorrect</p>";
+		}
+		?>
 		<input class="row mt-4 mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
 		
 	    </form>
@@ -27,6 +52,8 @@
     </div>
     
 </header>
+
+
     
 
 <?php include("footer.php"); ?>

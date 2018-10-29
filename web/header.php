@@ -21,7 +21,9 @@
 
 	
 
-	<nav class="navbar navbar-expand-md navbar-dark bg-light">
+	<nav class="navbar navbar-expand-md navbar-dark"
+	     data-0="background-color: #ffffff20 !important;"
+	     data-200="background-color: #555;">
 	    <div class="container">
 		<a class="navbar-brand" href="#">¡HolaVoisin!</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
