@@ -264,6 +264,43 @@ p.erreur-connexion {
     font-size: 14px;
 }
 
+#message-user-inscrit {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    z-index: 101;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px 5px rgba(40, 40, 40, 0.2);
+}
+
+#bg-accueil-assombri {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3338;
+    z-index: 100;
+}
+
+#message-user-inscrit button {
+    border-radius: 5px;
+    color: #fff;
+    background-color: #9c619e;
+    border: solid 2px #9c619e;
+}
+
+
+#message-user-inscrit button:hover {
+    background-color: #fff;
+    color: #9c619e;
+}
+
+
 /***************/
 /* INSCRIPTION */
 /*************************************************************/

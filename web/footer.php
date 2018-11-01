@@ -7,6 +7,8 @@
      forceHeight: false
  });
 </script>
+<script src="js/msg-inscrit-accueil.js"></script>
+
 
 
 </body>
