@@ -2,6 +2,11 @@
 
 <?php
 
+if(isset($_SESSION['identifiant'])) {
+    header('location: accueil.php');
+}
+
+
 include("db-login.php");
 if(isset($_POST['identifiant']))
     $identifiant = $_POST['identifiant'];
@@ -17,7 +22,11 @@ foreach ($res as $tuple) {
 }
 
 if($isUser) {
-    header('location: accueil.php');
+    if(!isset($_SESSION['identifiant'])) {
+	echo "OOOOOOOOOOOOOOOOOOKKKKK";
+	$_SESSION['identifiant'] = $identifiant;
+    }
+    header("location: accueil.php?inscrit&{$_SESSION['identifiant']}");
 }
 ?>
 
@@ -54,6 +63,6 @@ if($isUser) {
 </header>
 
 
-    
+
 
 <?php include("footer.php"); ?>

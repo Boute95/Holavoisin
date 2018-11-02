@@ -101,3 +101,6 @@ if(!$isUser && $inscriptionOk){
     </div>
     
 </header>
+
+<?php include("footer.php") ?>
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-
+    <?php session_start() ?>
     
     <head>
 	
@@ -36,19 +36,36 @@
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'accueil.php')){ echo 'active'; }?>" >
 			    <a class="nav-link" href="accueil.php">Accueil</a>
 			</li>
+			
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'chercher.php')){ echo 'active'; }?>">
 			    <a class="nav-link" href="chercher.php">Chercher</a>
 			</li>
+			
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'proposer.php')){ echo 'active'; }?>">
 			    <a class="nav-link" href="proposer.php">Proposer</a>
 			</li>
-			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'connexion.php')){ echo 'active'; }?>">
-			    <a class="nav-link" href="connexion.php">Connexion</a>
-			</li>
-			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'inscription.php')){ echo 'active'; }?>">
-			    <a class="nav-link" href="inscription.php">Inscription</a>
-			</li>
+			<?php if(!isset($_SESSION['identifiant'])){ ?>
+			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'connexion.php')){ echo 'active'; }?>">
+				<a class="nav-link" href="connexion.php">Connexion</a>
+			    </li>
+
+			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'inscription.php')){ echo 'active'; }?>">
+				<a class="nav-link" href="inscription.php">Inscription</a>
+			    </li>
+			    
+			<?php }else{ ?>
+			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'monCompte.php')){ echo 'active'; }?>">
+				<a class="nav-link" href="monCompte.php">Mon Compte</a>
+			    </li>
+			    
+			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'deconnexion.php')){ echo 'active'; }?>">
+				<a class="nav-link" href="deconnexion.php">Deconnexion</a>
+			    </li>
+
+			<?php } ?>
+
 		    </ul>
 		</div>
 	    </div>
 	</nav>
+
