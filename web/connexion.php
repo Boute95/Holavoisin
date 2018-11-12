@@ -35,7 +35,7 @@ if($isUser) {
     <div class="container">
 
 	<div class="row mx-auto my-4 text-center">
-	    <h1 class="mx-auto">Connectez-vous pour echanger</h1>
+	    <h1 class="mx-auto">Connectez-vous pour échanger</h1>
 	</div>
 
 	<div class= "row my-auto">
@@ -52,14 +52,27 @@ if($isUser) {
 		    echo "<p class='erreur-connexion'>Identifiant ou mot de passe incorrect</p>";
 		}
 		?>
-		<input class="row mt-4 mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
-		
+    <div class= "row mt-4">
+      <div class="col-6">
+        <input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
+      </div>
+      <div class="col-6">
+		    <input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
+      </div>
+    </div>
+    
+    <?php
+    if (isset($_POST['nouveauMembre'])) {
+      header('location: inscription.php');
+    }
+    ?>
+
 	    </form>
-	    
+
 	</div>
 
     </div>
-    
+
 </header>
 
 

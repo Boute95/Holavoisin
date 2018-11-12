@@ -47,7 +47,7 @@ if(!$isUser && $inscriptionOk){
     <div class="container">
 
 	<div class="row mx-auto my-4 text-center">
-	    <h1 class="mx-auto">Inscrivez-vous pour echanger</h1>
+	    <h1 class="mx-auto">Inscrivez-vous pour échanger</h1>
 	</div>
 
 	<div class= "row my-auto">
@@ -62,7 +62,7 @@ if(!$isUser && $inscriptionOk){
 		if($isUser) {
 		    echo "<p class='erreur-connexion text-center'>Utilisateur ou mail déja existant !</p>";
 		}
-		
+
 		?>
 
 		<div class="row">
@@ -91,16 +91,15 @@ if(!$isUser && $inscriptionOk){
 		    </div>
 
 		</div>
-		
+
 		<input class="row mt-4 mx-auto form-accueil-bouton" type="submit" name="inscription" id="inscription" value="S'inscrire">
-		
+
 	    </form>
-	    
+
 	</div>
 
     </div>
-    
+
 </header>
 
 <?php include("footer.php") ?>
-

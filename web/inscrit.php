@@ -5,9 +5,9 @@
     <div class="container">
 
 	<div class="row mx-auto my-4 text-center">
-	    <h1 class="mx-auto">Felicitation ! Vous etes inscrit !</h1>
+	    <h1 class="mx-auto">Félicitation ! Vous êtes inscrit !</h1>
 	</div>
 
     </div>
-    
+
 </header>

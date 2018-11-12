@@ -2,24 +2,24 @@
 <html>
 
     <?php session_start() ?>
-    
+
     <head>
-	
+
 	<title>¡HolaVoisin!</title>
 	<meta charset="utf-8" />
-	
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Niramit:400,400i,700,700i|Gaegu:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Niramit:400,400i,700,700i|Annie+Use+Your+Telescope" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	
+
     </head>
 
 
-    
-    
+
+
     <body>
 
-	
+
 
 	<nav class="navbar navbar-expand-md navbar-dark"
 	     data-0="background-color: #ffffff20 !important;"
@@ -32,15 +32,15 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav ml-auto">
-			
+
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'accueil.php')){ echo 'active'; }?>" >
 			    <a class="nav-link" href="accueil.php">Accueil</a>
 			</li>
-			
+
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'chercher.php')){ echo 'active'; }?>">
 			    <a class="nav-link" href="chercher.php">Chercher</a>
 			</li>
-			
+
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'proposer.php')){ echo 'active'; }?>">
 			    <a class="nav-link" href="proposer.php">Proposer</a>
 			</li>
@@ -52,12 +52,12 @@
 			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'inscription.php')){ echo 'active'; }?>">
 				<a class="nav-link" href="inscription.php">Inscription</a>
 			    </li>
-			    
+
 			<?php }else{ ?>
 			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'monCompte.php')){ echo 'active'; }?>">
 				<a class="nav-link" href="monCompte.php">Mon Compte</a>
 			    </li>
-			    
+
 			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'deconnexion.php')){ echo 'active'; }?>">
 				<a class="nav-link" href="deconnexion.php">Deconnexion</a>
 			    </li>
@@ -68,4 +68,3 @@
 		</div>
 	    </div>
 	</nav>
-
