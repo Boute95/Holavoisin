@@ -97,10 +97,12 @@ body {
 /**************/
 /* FORMULAIRE */
 /*************************************************************/
-
+form h1{
+  color: #555;
+}
 
 label {
-    color: black;
+    color: #333;
 }
 
 select, input {
@@ -120,7 +122,7 @@ input[type=submit] {
 
 input[id=chercher],
 input[id=inscription],
-input[id=nouveauMembre] {
+input[id=nouveauMembre]  {
     background-color: #47bf66;
     border: solid 2px #47bf66;
 }
@@ -289,7 +291,8 @@ p.erreur-connexion {
     z-index: 100;
 }
 
-#message-user-inscrit button {
+#message-user-inscrit button,
+button.continuer {
     border-radius: 5px;
     color: #fff;
     background-color: #9c619e;
@@ -297,7 +300,8 @@ p.erreur-connexion {
 }
 
 
-#message-user-inscrit button:hover {
+#message-user-inscrit button:hover,
+button.continuer:hover {
     background-color: #fff;
     color: #9c619e;
 }
@@ -308,4 +312,22 @@ p.erreur-connexion {
 /*************************************************************/
 .inscription-form {
     max-width: none;
+}
+
+
+/************/
+/* PROPOSER */
+/*************************************************************/
+#form-objet, #form-service, #form-type {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+#form-type {
+  transform: translate(-50%, -50%);
+}
+
+#form-objet, #form-service {
+  left: 105vw;
 }
