@@ -11,8 +11,8 @@ body {
 
 
 .navbar {
-    font-family: 'Gaegu', cursive;
-    font-size: 22px;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: 26px;
     z-index:10;
     padding: 0;
     /* background-color: #ffffff20 !important; */
@@ -79,7 +79,7 @@ body {
 
 .header-accueil h1, .header-chercher h1{
     font-size: 60px;
-    font-family: 'Gaegu', cursive;
+    font-family: 'Annie Use Your Telescope', cursive;
     margin-bottom: 20px;
 }
 
@@ -97,10 +97,12 @@ body {
 /**************/
 /* FORMULAIRE */
 /*************************************************************/
-
+form h1{
+  color: #555;
+}
 
 label {
-    color: black;
+    color: #333;
 }
 
 select, input {
@@ -119,7 +121,8 @@ input[type=submit] {
 }
 
 input[id=chercher],
-input[id=inscription] {
+input[id=inscription],
+input[id=nouveauMembre]  {
     background-color: #47bf66;
     border: solid 2px #47bf66;
 }
@@ -131,7 +134,8 @@ input[id=connection] {
 }
 
 input[id=chercher]:hover,
-input[id=inscription]:hover {
+input[id=inscription]:hover,
+input[id=nouveauMembre]:hover {
     background-color: #fff;
     color: #47bf66;
 }
@@ -194,7 +198,7 @@ input[id=connection]:hover {
 }
 
 .form-connexion {
-    padding: 40px 60px;    
+    padding: 40px 60px;
 }
 
 
@@ -206,7 +210,7 @@ input[id=connection]:hover {
     border: 1px solid #9c619e;
     border-radius: 6px;
     color: #333;
-    box-shadow: 0 10px 15px 2px rgba(40, 40, 40, 0.15);    
+    box-shadow: 0 10px 15px 2px rgba(40, 40, 40, 0.15);
 }
 
 .card:hover {
@@ -287,7 +291,8 @@ p.erreur-connexion {
     z-index: 100;
 }
 
-#message-user-inscrit button {
+#message-user-inscrit button,
+button.continuer {
     border-radius: 5px;
     color: #fff;
     background-color: #9c619e;
@@ -295,7 +300,8 @@ p.erreur-connexion {
 }
 
 
-#message-user-inscrit button:hover {
+#message-user-inscrit button:hover,
+button.continuer:hover {
     background-color: #fff;
     color: #9c619e;
 }
@@ -308,9 +314,20 @@ p.erreur-connexion {
     max-width: none;
 }
 
+
 /************/
 /* PROPOSER */
 /*************************************************************/
-.fond-blanc {
-    
+#form-objet, #form-service, #form-type {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+#form-type {
+  transform: translate(-50%, -50%);
+}
+
+#form-objet, #form-service {
+  left: 105vw;
 }

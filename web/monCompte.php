@@ -50,7 +50,7 @@ if(!empty($email)) {
 
 			<label class="row">Ancien mot de passe</label>
 			<input class="row mb-2" type="password" name="ancienPassword" placeholder="Mot de passe">
-			
+
 			<label class="row">Mot de passe</label>
 			<input class="row mb-2" type="password" name="password" placeholder="Mot de passe">
 
@@ -70,15 +70,15 @@ if(!empty($email)) {
 		    </div>
 
 		</div>
-		
+
 		<input class="row mt-4 mx-auto form-accueil-bouton" type="submit" name="inscription" id="inscription" value="Mettre à jour">
-		
+
 	    </form>
-	    
+
 	</div>
 
     </div>
-    
+
 </header>
 
 <?php include("footer.php"); ?>

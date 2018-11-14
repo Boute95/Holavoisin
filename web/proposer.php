@@ -14,6 +14,12 @@ session_start();
 
     <div class="container">
 
+	<div class= "row my-auto">
+
+	    <form class="mx-auto" method="post">
+
+    <div class="container">
+
 	<div class="row mx-auto my-4 text-center">
 	    <h1 class="mx-auto">Inscrivez-vous pour echanger</h1>
 	</div>
