@@ -6,6 +6,12 @@ session_start();
 
 <header class="container-fluid header-accueil">
 
+    <?php
+
+    if(isset($_SESSION['identifiant'])) {
+
+    ?>
+
     <div class="container">
 
 	<div class="row mx-auto my-4 text-center">
@@ -19,8 +25,6 @@ session_start();
 		<div class="row">
 
 		    <div class="col-6">
-
-			
 
 			<label class="row"></label>
 			<input class ="row mb-2" type="text" name="nom" placeholder="Nom">
@@ -52,6 +56,18 @@ session_start();
 	</div>
 
     </div>
+
+    <?php }
+    else {
+    ?>
+
+	<div class="container">
+	    <div class="row mx-auto my-4 text-center fond-blanc">
+		
+	    </div>
+	</div>
+
+	<?php } ?>
     
 </header>
 
