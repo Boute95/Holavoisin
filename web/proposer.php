@@ -82,6 +82,17 @@ session_start();
 
 	<div class="container">
 	    <div class="row mx-auto my-4 text-center fond-blanc">
+		<div class="row mb-4">
+		    Vous devez être inscrit pour pouvoir proposer un objet ou service
+		</div>
+		<div class="row w-100 justify-content-around">
+		    <a class="button-holavoisin button-vert" href="./inscription.php">
+			Devenir membre
+		    </a>
+		    <a class="button-holavoisin button-violet" href="./connexion.php">
+			Se connecter
+		    </a>
+		</div>
 		
 	    </div>
 	</div>

@@ -42,10 +42,10 @@ if($isUser) {
 	    <form class="formulaire mx-auto connexion-form" method="post">
 
 		<label class="row text-center">Identifiant ou adresse mail</label>
-		<input class ="row mb-2 mx-auto" type="text" name="identifiant" placeholder="Identifiant ou mail">
+		<input class ="row mb-3 mx-auto" type="text" name="identifiant" placeholder="Identifiant ou mail">
 
 		<label class="row text-center">Mot de passe</label>
-		<input class="row mb-2 mx-auto" type="password" name="password" placeholder="Mot de passe">
+		<input class="row mb-3 mx-auto" type="password" name="password" placeholder="Mot de passe">
 		<?php if((isset($_POST['identifiant']) || isset($_POST['password']))
 			 && !$isUser){
 		    echo "<p class='erreur-connexion'>Identifiant ou mot de passe incorrect</p>";
