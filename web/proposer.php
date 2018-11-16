@@ -81,11 +81,12 @@ session_start();
     ?>
 
 	<div class="container">
-	    <div class="row mx-auto my-4 text-center fond-blanc">
-		<div class="row mb-4">
+	    <div id="msg-inscription-necessaire"
+		 class="row mx-auto my-4 text-center fond-blanc">
+		<div class="row m-0 mb-4">
 		    Vous devez être inscrit pour pouvoir proposer un objet ou service
 		</div>
-		<div class="row w-100 justify-content-around">
+		<div class="row w-100 mx-auto justify-content-around">
 		    <a class="button-holavoisin button-vert" href="./inscription.php">
 			Devenir membre
 		    </a>

@@ -53,11 +53,11 @@ if($isUser) {
 		?>
 
     <div class= "row mt-4">
-      <div class="col-6">
-        <input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
-      </div>
-      <div class="col-6">
-		    <input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
+	<div class="col-6">
+	    <input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
+	</div>
+	<div class="col-6">
+	    <input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
       </div>
     </div>
 
