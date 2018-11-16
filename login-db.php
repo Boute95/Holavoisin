@@ -1,4 +1,4 @@
 <?php
-$login = "abreton";
-$pw = "1234";
+$login = "root";
+$pw = "0000";
 ?>

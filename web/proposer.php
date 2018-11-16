@@ -16,7 +16,7 @@ session_start();
 
 	    <div class= "row my-auto">
 
-		<form class="mx-auto" method="post">
+		<form class="form-proposer mx-auto" method="post">
 
 		    <div class="formulaire mx-auto px-5 py-4 inscription-form" id="form-type">
 			<div class="row">
@@ -33,47 +33,86 @@ session_start();
 			    </div>
 			</div>
 			<div class="row">
-			    <button class="row mt-4 mx-auto form-accueil-bouton continuer">
-				Continuer  <i class="ml-2 fas fa-2x fa-angle-right"></i>
-			    </button>
+			    <div id="continuer1" class="row mt-4 mx-auto button-holavoisin button-violet">
+				Continuer  <i class="ml-2 fas fa-1x fa-angle-right"></i>
+      </div>
 			</div>
 		    </div>
 
 		    <div class="formulaire mx-auto px-5 py-4 inscription-form" id="form-objet">
 			<div class="row">
-			    <h2>Décrivez votre objet<h2>
+			    <h2 class="text-center mx-auto mb-3">Décrivez votre objet<h2>
 			</div>
-			<div class="row">
-			    <label class="row">Quel est l'objet que vous proposez?</label>
-			    <input class="row mb-2" type="text" name="objet" placeholder="nom objet">
-
-			    <div class="col-6 text-center">
+			<div class="container">
+        <div class="row mb-2">
+			    <label class="col-6">Nom de l'objet</label>
+			    <input class="col-6 mb-2" type="text" name="objet" placeholder="nom objet">
+        </div>
+			    <div class="row mb-2">
+            <div class="col-6">
+              <label>Location</label>
 				<input type="radio" name="LocationVente" id="location" />
-				<label>Location</label>
-			    </div>
-
-			    <div class="col-6 text-center">
+      </div>
+      <div class="col-6">
+        <label>Vente</label>
 				<input type="radio" name="LocationVente" id="vente" />
-				<label>Vente</label><br/>
 			    </div>
-			    <label class="row">Prix</label>
-			    <input class="row mb-2" type="text" name="prix" placeholder="prix">
-			</div>
-		    </div>
+        </div>
 
-		    <div class="formulaire mx-auto px-5 py-4 inscription-form" id="form-service">
-			<div class="row">
-			    <h2>Decrivez votre service<h2>
+      <div class="row mb-2">
+			    <label class="col-6">Prix</label>
+			    <input class="col-6" type="text" name="prix" placeholder="prix">
 			</div>
-			<div class="row">
-			    <label class="row">Quel est le service que vous proposez?</label>
-			    <input class="row mb-2" type="text" name="service" placeholder="nom service">
-			</div>
-			<label class="row">Prix</label>
-			<input class="row mb-2" type="text" name="prix" placeholder="prix">
-		    </div>
+
+    <div class="row mb-2">
+        <label class="col-6">Localisation</label>
+        <input class="col-6" type="text" name="localisation" placeholder="Localisation">
+    </div>
+
+    <div class="row mb-2">
+    <label class="col-6">Image(s)</label>
+</div>
+
+      <div class="row mb-2">
+        <input class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+  </div>
+
+      </div>
+      </div>
+
+      <div class="formulaire mx-auto px-5 py-4 inscription-form" id="form-service">
+    <div class="row">
+        <h2 class="text-center mx-auto mb-3">Décrivez votre service<h2>
+    </div>
+    <div class="container">
+      <div class="row mb-2">
+        <label class="col-6">Nom de du service</label>
+        <input class="col-6 mb-2" type="text" name="objet" placeholder="nom objet">
+      </div>
+
+    <div class="row mb-2">
+        <label class="col-6">Prix</label>
+        <input class="col-6" type="text" name="prix" placeholder="prix">
+    </div>
+
+  <div class="row mb-2">
+      <label class="col-6">Localisation</label>
+      <input class="col-6" type="text" name="localisation" placeholder="Localisation">
+  </div>
+
+  <div class="row mb-2">
+    <label class="col-6">Image(s)</label>
+  </div>
+
+    <div class="row mb-2">
+      <input class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+</div>
+
+    </div>
+    </div>
+
 		</form>
-            </div>
+    </div>
 	</div>
 
     <?php }
@@ -94,12 +133,13 @@ session_start();
 			Se connecter
 		    </a>
 		</div>
-		
+
 	    </div>
 	</div>
 
     <?php } ?>
-    
+
 </header>
+
 
 <?php include("footer.php") ?>

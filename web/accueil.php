@@ -6,7 +6,7 @@
     <div class="container">
 
 	<div class= "row my-auto">
-	    
+
 	    <div class="col-12 col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
 		<h1>Le coup de pouce du quotidien !</h1>
 		<p>500 000 voisins échangent au quotidien partout en France.</p>
@@ -39,9 +39,9 @@
 			</div>
 		    </form>
 		</div>
-		
+
 	    </div>
-	    
+
 	</div>
     </div>
 
@@ -58,7 +58,6 @@
 	<button class="px-3 py-2 mx-auto" onclick="enleverMsgInscrit()">Continuer</button>
     </div>
 </div>
-
 
 
 <?php include("footer.php"); ?>

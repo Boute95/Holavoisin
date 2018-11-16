@@ -341,6 +341,10 @@ button.continuer:hover {
 /************/
 /* PROPOSER */
 /*************************************************************/
+.form-proposer .formulaire h2 {
+  color: #333;
+}
+
 #msg-inscription-necessaire {
     max-width: 400px;
     font-weight: normal;
@@ -348,19 +352,20 @@ button.continuer:hover {
 }
 
 #msg-inscription-necessaire .button-holavoisin {
-    
+
 }
 
 #form-objet, #form-service, #form-type {
   position: fixed;
   top: 50%;
   left: 50%;
+  transition: all 600ms;
 }
 
 #form-type {
   transform: translate(-50%, -50%);
 }
 
-#form-objet, #form-service {
+#form-service, #form-objet {
   left: 105vw;
 }
