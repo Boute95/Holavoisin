@@ -342,7 +342,9 @@ button.continuer:hover {
 /* PROPOSER */
 /*************************************************************/
 .form-proposer .formulaire h2 {
-  color: #333;
+    font-family: 'Annie Use Your Telescope';
+    font-size: 36px;
+    color: #333;
 }
 
 #msg-inscription-necessaire {
@@ -356,16 +358,16 @@ button.continuer:hover {
 }
 
 #form-objet, #form-service, #form-type {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transition: all 600ms;
+    position: fixed;
+    top: 50%;
+    transition: all 400ms;
 }
 
 #form-type {
-  transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #form-service, #form-objet {
-  left: 105vw;
+    transform: translate(110vw, -50%);
 }
