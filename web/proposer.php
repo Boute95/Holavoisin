@@ -24,11 +24,11 @@ session_start();
 			</div>
 			<div class="row">
 			    <div class="col-6 text-center">
-				<input type="radio" name="ObjetService" id="objet" />
+				<input type="radio" name="ObjetService" id="type-objet" checked />
 				<label>Objet</label>
 			    </div>
 			    <div class="col-6 text-center">
-				<input type="radio" name="ObjetService" id="service" />
+				<input type="radio" name="ObjetService" id="type-service" />
 				<label>Service</label><br/>
 			    </div>
 			</div>
@@ -74,7 +74,12 @@ session_start();
 			    </div>
 
 			    <div class="row mb-2">
-				<input class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+				<div class="row mx-auto button-holavoisin button-violet retour">
+				    <i class="mr-2 fas fa-1x fa-angle-left"></i> Retour
+				</div>
+				<button class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+				    Valider<i class="ml-2 fas fa-1x fa-check"></i>
+				</button>
 			    </div>
 
 			</div>
@@ -105,7 +110,12 @@ session_start();
 			    </div>
 
 			    <div class="row mb-2">
-				<input class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+				<div class="row mx-auto button-holavoisin button-violet retour">
+				    <i class="mr-2 fas fa-1x fa-angle-left"></i> Retour
+				</div>
+				<button class="mx-auto button-holavoisin button-vert" type="submit" value="Valider">
+				    Valider<i class="ml-2 fas fa-1x fa-check"></i>
+				</button>
 			    </div>
 
 			</div>
