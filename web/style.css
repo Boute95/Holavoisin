@@ -343,7 +343,7 @@ button.continuer:hover {
 /************/
 /* PROPOSER */
 /*************************************************************/
-.form-proposer .formulaire h2 {
+.form-proposer h2 {
     font-family: 'Annie Use Your Telescope';
     font-size: 36px;
     color: #333;

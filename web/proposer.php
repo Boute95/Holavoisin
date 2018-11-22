@@ -2,6 +2,7 @@
 
 <?php
 session_start();
+include("db-login.php");
 ?>
 
 <header class="container-fluid header-accueil">
@@ -16,9 +17,7 @@ session_start();
 
 	    <div class= "row my-auto">
 
-		<form class="form-proposer mx-auto" method="post">
-
-		    <div class="formulaire mx-auto px-5 py-4 inscription-form" id="form-type">
+        <div class="form-proposer formulaire mx-auto px-5 py-4 inscription-form" id="form-type">
 			<div class="row">
 			    <h2 class="mb-4">Que proposez-vous?</h2>
 			</div>
@@ -39,19 +38,19 @@ session_start();
 			</div>
 		    </div>
 
-		    <div class="formulaire px-5 py-4 inscription-form" id="form-objet">
+		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-objet">
 			<div class="row">
 			    <h2 class="text-center mx-auto mb-3">Décrivez votre objet<h2>
 			</div>
 			<div class="container">
 			    <div class="row mb-2">
 				<label class="col-6">Nom de l'objet</label>
-				<input class="col-6 mb-2" type="text" name="objet" placeholder="nom objet">
+				<input class="col-6 mb-2" type="text" name="objet" placeholder="nom objet" required/>
 			    </div>
 			    <div class="row mb-2">
 				<div class="col-6">
 				    <label>Location</label>
-				    <input type="radio" name="LocationVente" id="location" />
+				    <input type="radio" name="LocationVente" id="location" checked/>
 				</div>
 				<div class="col-6">
 				    <label>Vente</label>
@@ -61,16 +60,17 @@ session_start();
 
 			    <div class="row mb-2">
 				<label class="col-6">Prix</label>
-				<input class="col-6" type="text" name="prix" placeholder="prix">
+				<input class="col-6" type="text" name="prix" placeholder="prix" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Localisation</label>
-				<input class="col-6" type="text" name="localisation" placeholder="Localisation">
+				<input class="col-6" type="text" name="localisation" placeholder="Localisation" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Image(s)</label>
+         <input type="file" name="image"/>
 			    </div>
 
 			    <div class="row mb-2">
@@ -83,30 +83,31 @@ session_start();
 			    </div>
 
 			</div>
-		    </div>
+    </form>
 
-		    <div class="formulaire px-5 py-4 inscription-form" id="form-service">
+		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-service">
 			<div class="row">
 			    <h2 class="text-center mx-auto mb-3">Décrivez votre service<h2>
 			</div>
 			<div class="container">
 			    <div class="row mb-2">
 				<label class="col-6">Nom de du service</label>
-				<input class="col-6 mb-2" type="text" name="objet" placeholder="Nom service">
+				<input class="col-6 mb-2" type="text" name="objet" placeholder="Nom service" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Prix</label>
-				<input class="col-6" type="text" name="prix" placeholder="Prix">
+				<input class="col-6" type="text" name="prix" placeholder="Prix" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Localisation</label>
-				<input class="col-6" type="text" name="localisation" placeholder="Localisation">
+				<input class="col-6" type="text" name="localisation" placeholder="Localisation" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Image(s)</label>
+        <input type="file" name="image"/>
 			    </div>
 
 			    <div class="row mb-2">
@@ -151,5 +152,25 @@ session_start();
 
 </header>
 
+
+<?php
+
+
+
+  $isObject = false;
+  $isService = false;
+  if(isset($_POST['objet']) {
+    $isObject = true;
+  }
+  if(isset($_POST['service']) {
+    $isService = true;
+  }
+
+  if($isObject) {
+    $req = "INSERT INTO object (nom, prix, localisation)
+    VALUES ($_POST['objet'], $_POST['prix'], $_POST['localisation']);
+  }
+
+ ?>
 
 <?php include("footer.php") ?>
