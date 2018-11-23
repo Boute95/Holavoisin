@@ -293,7 +293,7 @@ p.erreur-connexion {
     font-size: 14px;
 }
 
-#message-user-inscrit {
+.msg-accueil {
     display: none;
     position: fixed;
     top: 50%;
@@ -316,7 +316,7 @@ p.erreur-connexion {
     z-index: 100;
 }
 
-#message-user-inscrit button,
+.msg-accueil button,
 button.continuer {
     border-radius: 5px;
     color: #fff;
@@ -325,7 +325,7 @@ button.continuer {
 }
 
 
-#message-user-inscrit button:hover,
+.msg-accueil button:hover,
 button.continuer:hover {
     background-color: #fff;
     color: #9c619e;

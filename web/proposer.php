@@ -177,6 +177,7 @@ include("db-login.php");
 
   if (isset($req)) {
     $res = $dbh->query($req);
+    header("location: accueil.php?proposition");
   }
 
  ?>

@@ -50,12 +50,21 @@
 
 <div id="bg-accueil-assombri"></div>
 
-<div id="message-user-inscrit" class="p-5">
+<div id="message-user-inscrit" class="msg-accueil p-5">
     <div class="row text-center mb-3">
 	<p>Bonjour, cela fait plaisir de vous retrouver !</p>
     </div>
     <div class="row">
-	<button class="px-3 py-2 mx-auto" onclick="enleverMsgInscrit()">Continuer</button>
+	<button class="px-3 py-2 mx-auto" onclick="enleverMsg()">Continuer</button>
+    </div>
+</div>
+
+<div id="message-proposition" class="msg-accueil p-5">
+    <div class="row text-center mb-3">
+	<p>Merci ! Votre proposition a bien été enregistrée !</p>
+    </div>
+    <div class="row">
+	<button class="px-3 py-2 mx-auto" onclick="enleverMsg()">Continuer</button>
     </div>
 </div>
 

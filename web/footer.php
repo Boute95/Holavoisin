@@ -7,7 +7,7 @@
      forceHeight: false
  });
 </script>
-<script src="js/msg-inscrit-accueil.js"></script>
+<script src="js/accueil.js"></script>
 <script src="js/proposer.js"></script>
 
 
