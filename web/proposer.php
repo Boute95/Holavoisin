@@ -1,14 +1,13 @@
 <?php include("header.php"); ?>
 
 <?php
-session_start();
 include("db-login.php");
 ?>
 
 <header class="container-fluid header-accueil">
 
     <?php
-
+    
     if(isset($_SESSION['identifiant'])) {
 
     ?>
