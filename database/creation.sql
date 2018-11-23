@@ -1,11 +1,14 @@
-drop table if exists services;
+drop table if exists service;
 drop table if exists utilisateur;
+drop table if exists objet;
 
-create table services(
+create table service (
        id int AUTO_INCREMENT,
        nom VARCHAR(100),
        description VARCHAR(1000),
-       constraint pk_services primary key(id)
+       prix NUMERIC(6,0),
+       localisation VARCHAR(100),
+       constraint pk_service primary key(id)
 );
 
 create table utilisateur(

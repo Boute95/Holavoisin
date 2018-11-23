@@ -17,7 +17,7 @@ include("db-login.php");
 
 	    <div class= "row my-auto">
 
-        <div class="form-proposer formulaire mx-auto px-5 py-4 inscription-form" id="form-type">
+        <div class="form-proposer formulaire mx-auto px-5 py-4 inscription-form" id="form-type" method="post">
 			<div class="row">
 			    <h2 class="mb-4">Que proposez-vous?</h2>
 			</div>
@@ -38,7 +38,7 @@ include("db-login.php");
 			</div>
 		    </div>
 
-		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-objet">
+		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-objet" method="post">
 			<div class="row">
 			    <h2 class="text-center mx-auto mb-3">Décrivez votre objet<h2>
 			</div>
@@ -60,7 +60,7 @@ include("db-login.php");
 
 			    <div class="row mb-2">
 				<label class="col-6">Prix</label>
-				<input class="col-6" type="text" name="prix" placeholder="prix" required/>
+				<input class="col-6" type="text" name="prix" placeholder="prix" pattern="[0-9]+" required/>
 			    </div>
 
 			    <div class="row mb-2">
@@ -85,19 +85,19 @@ include("db-login.php");
 			</div>
     </form>
 
-		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-service">
+		    <form class="form-proposer formulaire px-5 py-4 inscription-form" id="form-service" method="post">
 			<div class="row">
 			    <h2 class="text-center mx-auto mb-3">Décrivez votre service<h2>
 			</div>
 			<div class="container">
 			    <div class="row mb-2">
 				<label class="col-6">Nom de du service</label>
-				<input class="col-6 mb-2" type="text" name="objet" placeholder="Nom service" required/>
+				<input class="col-6 mb-2" type="text" name="service" placeholder="Nom service" required/>
 			    </div>
 
 			    <div class="row mb-2">
 				<label class="col-6">Prix</label>
-				<input class="col-6" type="text" name="prix" placeholder="Prix" required/>
+				<input class="col-6" type="text" name="prix" placeholder="Prix" pattern="[0-9]+" required/>
 			    </div>
 
 			    <div class="row mb-2">
@@ -155,20 +155,28 @@ include("db-login.php");
 
 <?php
 
-
-
   $isObject = false;
   $isService = false;
-  if(isset($_POST['objet']) {
+  $req;
+
+  if(isset($_POST['objet'])) {
     $isObject = true;
   }
-  if(isset($_POST['service']) {
+  if(isset($_POST['service'])) {
     $isService = true;
   }
 
   if($isObject) {
-    $req = "INSERT INTO object (nom, prix, localisation)
-    VALUES ($_POST['objet'], $_POST['prix'], $_POST['localisation']);
+    $req = "INSERT INTO objet (nom, prix, localisation)
+    VALUES ('{$_POST['objet']}', {$_POST['prix']}, '{$_POST['localisation']}');";
+  }
+  if($isService) {
+    $req = "INSERT INTO service (nom, prix, localisation)
+    VALUES ('{$_POST['service']}', {$_POST['prix']}, '{$_POST['localisation']}');";
+  }
+
+  if (isset($req)) {
+    $res = $dbh->query($req);
   }
 
  ?>
