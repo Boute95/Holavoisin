@@ -14,6 +14,7 @@ create table service (
 
 create table utilisateur(
        id int AUTO_INCREMENT,
+       prenom VARCHAR(100),
        nom VARCHAR(100),
        mdp VARCHAR(100),
        email VARCHAR(100),

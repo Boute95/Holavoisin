@@ -13,6 +13,7 @@ include("db-login.php");
       $isObject = false;
       $isService = false;
       $req;
+      $isSent = false;
 
       if(isset($_POST['objet'])) {
         $isObject = true;
@@ -29,11 +30,31 @@ include("db-login.php");
         $req = "INSERT INTO service (nom, prix, localisation)
         VALUES ('{$_POST['service']}', {$_POST['prix']}, '{$_POST['localisation']}');";
       }
+      if (isset($req)) {
+        $res = $dbh->query($req);
+        $isSent = true;
+      }
 
-      $target_dir = "../uploads/";
-      $target_file = $target_dir . basename($_FILES["image"]["name"]);
+      $strObjetOrService = "";
+      $target_dir = "../uploads/propositions/";
+      if ($isObject) {
+        $target_dir .= "objets/";
+        $strObjetOrService = "objet";
+      }
+      if ($isService) {
+        $target_dir .= "services/";
+        $strObjetOrService = "service";
+      }
+      $idproposition = -1;
+      $req="SELECT id FROM $strObjetOrService WHERE id >= all(SELECT id FROM $strObjetOrService)";
+      $res = $dbh->query($req);
+      foreach($res as $tuple) {
+        $idproposition = $tuple["id"];
+      }
+
+      $imageFileType = strtolower(pathinfo(basename($_FILES["image"]["name"]),PATHINFO_EXTENSION));
+      $target_file = $target_dir . $idproposition . "." . $imageFileType;
       $uploadOk = 1;
-      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
       // Check if image file is a actual image or fake image
       if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["image"]["tmp_name"]);
@@ -64,15 +85,15 @@ include("db-login.php");
           // if everything is ok, try to upload file
         } else {
           if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+            echo "The file ". $target_file . " has been uploaded.";
+            $req="UPDATE $strObjetOrService SET imagePath = '$target_file' WHERE id = $idproposition";
+            $res = $dbh->query($req);
           } else {
             echo "Sorry, there was an error uploading your file.";
           }
         }
       }
-
-      if (isset($req)) {
-        $res = $dbh->query($req);
+      if ($isSent) {
         header("location: accueil.php?proposition");
       }
 

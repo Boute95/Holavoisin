@@ -11,9 +11,15 @@ $req = "SELECT * FROM utilisateur WHERE nom='{$_SESSION['identifiant']}'";
 $res = $dbh->query($req);
 $mdp;
 $email;
+$prenom;
+$nom;
+$imagePath;
 foreach($res as $tuple) {
     $mdp = $tuple['mdp'];
     $email = $tuple['email'];
+    $prenom = $tuple['prenom'];
+    $nom = $tuple['nom'];
+    $imagePath = $tuple['imagePath'];
 }
 
 $ancienMdpSet = md5($_POST['ancienPassword']);
@@ -35,6 +41,14 @@ if(!empty($email)) {
 <header class="container-fluid header-accueil">
 
     <div class="container">
+
+      <div class="row mx-auto my-4 text-center">
+    	    <h1 class="mx-auto"><?php echo "$prenom $nom" ?></h1>
+    	</div>
+
+      <div class="row mx-auto my-4 text-center">
+        <img src="<?php echo $imagePath ?>">
+    	</div>
 
 	<div class="row mx-auto my-4 text-center">
 	    <h1 class="mx-auto">Editez votre profil</h1>
