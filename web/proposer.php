@@ -36,7 +36,7 @@ include("db-login.php");
       }
 
       $strObjetOrService = "";
-      $target_dir = "../uploads/propositions/";
+      $target_dir = "../web/uploads/propositions/";
       if ($isObject) {
         $target_dir .= "objets/";
         $strObjetOrService = "objet";
