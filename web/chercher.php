@@ -35,7 +35,7 @@
 
 include("db-login.php");
 
-$req = 'SELECT * FROM services;';
+$req = 'SELECT * FROM objet;';
 $res = $dbh->query( $req );
 
 ?>
@@ -49,12 +49,18 @@ $res = $dbh->query( $req );
 	    <div class="col-12 col-lg-4 mb-5">
 		<a class="card mx-auto" style="max-width: 24rem;" href="#">
   		    <div class="card-img-top">
-			<div class="card-img-top-child" style="background-image: url(resources/img/code.jpeg);">
+			<div class="card-img-top-child"
+			     style="background-image: url(<?php echo $tuple['imagePath'] ?>);">
 			</div>
 		    </div>
   		    <div class="card-body">
 			<h5 class="card-title"><?php echo $tuple['nom'];?></h5>
-    			<p class="card-text"><?php echo $tuple['description'];?></p>
+    			<p class="card-text">
+			<?php echo $tuple['description'];?>
+			<div class="row">
+			    <p class="mx-auto mt-1 mb-0 card-prix"><?php echo $tuple['prix'];?>€</p>
+			</div>
+			</p>
 		    </div>
 		</a>
 	    </div>

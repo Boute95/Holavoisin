@@ -279,6 +279,12 @@ input[id=connection]:hover,
     transition: all 0.3s;
 }
 
+.card-prix {
+    padding: 10px 20px;
+    background-color: #47bf66;
+    border-radius: 3px;
+    color: #fff;
+}
 
 
 /*************/
