@@ -1,4 +1,6 @@
-<?php include("header.php"); ?>
+<?php
+include("header.php");
+?>
 
 <header class="container-fluid header-chercher text-center">
     
@@ -33,10 +35,8 @@
 
 <?php
 
-include("db-login.php");
-
 $req = 'SELECT * FROM objet;';
-$res = $dbh->query( $req );
+$res = doQuery($req);
 
 ?>
 

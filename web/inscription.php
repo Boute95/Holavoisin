@@ -1,9 +1,9 @@
-<?php include("header.php"); ?>
-
 <?php
+
+include("header.php");
+
 session_start();
 
-include("db-login.php");
 if(isset($_POST['identifiant']))
     $identifiant = $_POST['identifiant'];
 if(isset($_POST['password']))
@@ -26,7 +26,7 @@ if (isset($_POST["inscription"])
 }
 
 $reqtest = "SELECT * FROM utilisateur WHERE nom='$identifiant' OR email='$mail'; ";
-$restest = $dbh->query($reqtest);
+$restest = doQuery($reqtest);
 
 foreach($restest as $tuple){
     $isUser = true;
@@ -34,7 +34,7 @@ foreach($restest as $tuple){
 
 if(!$isUser && $inscriptionOk){
     $req = "INSERT INTO utilisateur(nom,mdp,email) values ('$identifiant','$password','$mail');";
-    $res = $dbh->query($req);
+    $res = doQuery($req);
     header('location: accueil.php?inscrit');
 
 }

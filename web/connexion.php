@@ -1,13 +1,12 @@
-<?php include("header.php"); ?>
-
 <?php
+
+include("header.php");
+
 
 if(isset($_SESSION['identifiant'])) {
     header('location: accueil.php');
 }
 
-
-include("db-login.php");
 if(isset($_POST['identifiant']))
     $identifiant = $_POST['identifiant'];
 if(isset($_POST['password']))
@@ -15,7 +14,7 @@ if(isset($_POST['password']))
 $isUser = false;
 
 $req = "SELECT * FROM utilisateur WHERE nom = '$identifiant' AND mdp = '$password'";
-$res = $dbh->query($req);
+$res = doQuery($req);
 
 foreach ($res as $tuple) {
     $isUser = true;
@@ -23,10 +22,11 @@ foreach ($res as $tuple) {
 
 if($isUser) {
     if(!isset($_SESSION['identifiant'])) {
-	     $_SESSION['identifiant'] = $identifiant;
+	$_SESSION['identifiant'] = $identifiant;
     }
     header("location: accueil.php?inscrit&{$_SESSION['identifiant']}");
 }
+
 ?>
 
 <header class="container-fluid header-accueil">

@@ -1,7 +1,5 @@
-<?php include("header.php"); ?>
-
 <?php
-include("db-login.php");
+include("header.php");
 ?>
 
 <header class="container-fluid header-accueil">
@@ -31,7 +29,7 @@ include("db-login.php");
         VALUES ('{$_POST['service']}', {$_POST['prix']}, '{$_POST['localisation']}');";
       }
       if (isset($req)) {
-        $res = $dbh->query($req);
+        $res = doQuery($req);
         $isSent = true;
       }
 
@@ -47,7 +45,7 @@ include("db-login.php");
       }
       $idproposition = -1;
       $req="SELECT id FROM $strObjetOrService WHERE id >= all(SELECT id FROM $strObjetOrService)";
-      $res = $dbh->query($req);
+      $res = doQuery($req);
       foreach($res as $tuple) {
         $idproposition = $tuple["id"];
       }
@@ -87,7 +85,7 @@ include("db-login.php");
           if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             echo "The file ". $target_file . " has been uploaded.";
             $req="UPDATE $strObjetOrService SET imagePath = '$target_file' WHERE id = $idproposition";
-            $res = $dbh->query($req);
+            $res = doQuery($req);
           } else {
             echo "Sorry, there was an error uploading your file.";
           }

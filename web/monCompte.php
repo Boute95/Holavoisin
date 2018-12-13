@@ -1,14 +1,13 @@
-<?php include("header.php"); ?>
-
 <?php
+
+include("header.php");
 
 if(!isset($_SESSION['identifiant'])) {
     header('location: accueil.php');
 }
 
-include("db-login.php");
 $req = "SELECT * FROM utilisateur WHERE nom='{$_SESSION['identifiant']}'";
-$res = $dbh->query($req);
+$res = doQuery($req);
 $mdp;
 $email;
 $prenom;
@@ -28,12 +27,12 @@ $emailSet = $_POST['mail'];
 
 if(stristr($ancienMdpSet, $mdp) && !empty($mdpSet)) {
     $reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE nom = '{$_SESSION['identifiant']}'";
-    $resModifMdp = $dbh->query($reqModifMdp);
+    $resModifMdp = doQuery($reqModifMdp);
 }
 
 if(!empty($email)) {
     $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = '{$_SESSION['identifiant']}'";
-    $resModifEmail = $dbh->query($reqModifEmail);
+    $resModifEmail = doQuery($reqModifEmail);
 }
 
 ?>

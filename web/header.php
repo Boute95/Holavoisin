@@ -1,7 +1,16 @@
+<?php
+
+session_start();
+include('db.php');
+connectToDb();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
-
-    <?php session_start() ?>
 
     <head>
 
