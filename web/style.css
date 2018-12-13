@@ -379,3 +379,18 @@ button.continuer:hover {
 #form-service, #form-objet {
     transform: translate(110vw, -50%);
 }
+/*************/
+/* MONCOMPTE */
+/*************************************************************/
+.photoProfile{
+  border-radius: 50%;
+  height: 210px;
+  width: 210px;
+  background-size: cover;
+  background-position: center;
+}
+
+.nomUtilisateur {
+  font-family: 'Annie Use Your Telescope';
+  font-size: 44px;
+}

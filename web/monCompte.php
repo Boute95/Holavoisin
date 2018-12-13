@@ -9,12 +9,14 @@ if(!isset($_SESSION['identifiant'])) {
 include("db-login.php");
 $req = "SELECT * FROM utilisateur WHERE nom='{$_SESSION['identifiant']}'";
 $res = $dbh->query($req);
+$idutilisateur = -1;
 $mdp;
 $email;
 $prenom;
 $nom;
 $imagePath;
 foreach($res as $tuple) {
+    $idutilisateur = $tuple["id"];
     $mdp = $tuple['mdp'];
     $email = $tuple['email'];
     $prenom = $tuple['prenom'];
@@ -36,18 +38,58 @@ if(!empty($email)) {
     $resModifEmail = $dbh->query($reqModifEmail);
 }
 
+$target_dir = "../web/uploads/utilisateurs/";
+$imageFileType = strtolower(pathinfo(basename($_FILES["image"]["name"]),PATHINFO_EXTENSION));
+$target_file = $target_dir . $nom . $idutilisateur . "." . $imageFileType;
+$uploadOk = 1;
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["image"]["tmp_name"]);
+  if($check !== false) {
+    $uploadOk = 1;
+  } else {
+    $uploadOk = 0;
+  }
+  // Check if file already exists
+  if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+  }
+  // Check file size
+  if ($_FILES["image"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+  }
+  // Allow certain file formats
+  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+  && $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+  }
+
+  if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+  } else {
+    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+      echo "The file ". $target_file . " has been uploaded.";
+      $req="UPDATE utilisateur SET imagePath = '$target_file' WHERE id = $idutilisateur";
+      $res = $dbh->query($req);
+    } else {
+      echo "Sorry, there was an error uploading your file.";
+    }
+  }
+}
 ?>
 
 <header class="container-fluid header-accueil">
 
     <div class="container">
 
-      <div class="row mx-auto my-4 text-center">
-    	    <h1 class="mx-auto"><?php echo "$prenom $nom" ?></h1>
-    	</div>
-
-      <div class="row mx-auto my-4 text-center">
-        <img src="<?php echo $imagePath ?>">
+      <div class="row mx-auto mb-5 text-center justify-content-center">
+    	    <h2 class="nomUtilisateur my-auto mr-5"><?php echo "$prenom $nom" ?></h2>
+          <div class="photoProfile ml-5"
+          style="background-image: url('<?php echo $imagePath ?>')"></div>
     	</div>
 
 	<div class="row mx-auto my-4 text-center">
@@ -80,6 +122,9 @@ if(!empty($email)) {
 
 			<label class="row">Adresse</label>
 			<input class="row mb-2" type="text" name="adresse" placeholder="Adresse" value="">
+
+      <label class="row">Image(s)</label>
+      <input class="row mb-2" type="file" name="image"/>
 
 		    </div>
 
