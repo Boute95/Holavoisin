@@ -224,7 +224,7 @@ input[id=connection]:hover,
 /* CHERCHER */
 /*************************************************************/
 .card {
-    height: 350px;
+    height: 400px;
     border: 1px solid #9c619e;
     border-radius: 6px;
     color: #333;
@@ -277,10 +277,10 @@ input[id=connection]:hover,
 }
 
 .card-prix {
-    padding: 10px 20px;
-    background-color: #47bf66;
+    padding: 4px 8px;
+    border: solid 2px #9c619e;
     border-radius: 3px;
-    color: #fff;
+    color: #333;
 }
 
 

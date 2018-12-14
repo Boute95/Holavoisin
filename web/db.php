@@ -16,7 +16,11 @@ function connectToDb($login, $pw) {
 function doQuery($sql) {
     global $dbh;
     if($dbh) {
-	return $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+	$res = $dbh->query($sql);
+	if($res) {
+	    return $res->fetchAll(PDO::FETCH_ASSOC);
+	}
+	return $res;
     }
 }
 

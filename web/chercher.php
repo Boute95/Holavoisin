@@ -10,7 +10,7 @@ include("header.php");
     
     <div class="row formulaire-chercher text-center px-3 px-lg-5 py-4">
 	
-	<div class="col-4 px-4 m-auto">
+	<div class="col-3 px-4 m-auto">
 	    <select class="form-chercher-item">
 		<option value="choix1">Choix 1</option>
 		<option value="choix2">Choix 2</option>
@@ -19,11 +19,15 @@ include("header.php");
 	    </select>
 	</div>
 
-	<div class="col-4 px-4 m-auto">
-	    <input class="form-chercher-item" type="text" placeholder="Ville">
+	<div class="col-3 px-4 m-auto">
+	    <input id="ville" class="form-chercher-item" type="text" placeholder="Ville">
 	</div>
 
-	<div class="col-4 px-4 m-auto">
+	<div class="col-3 px-4 m-auto">
+	    <input id="search" class="form-chercher-item" type="text" placeholder="Nom, mot-clef ...">
+	</div>	
+
+	<div class="col-3 px-4 m-auto">
 	    <button id="form-chercher-bouton" class="button-holavoisin button-violet form-chercher-item" onclick="printAds()">Chercher</button>
 	</div>
 	
@@ -38,8 +42,11 @@ include("header.php");
 </div>
 
 
-
-
-
-
 <?php include("footer.php"); ?>
+
+
+<script>
+ $(document).ready(function() {
+     printAds();
+ })
+</script>

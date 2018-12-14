@@ -4,17 +4,12 @@ include "../db.php";
 include "../../login-db.php";
 connectToDb($login, $pw);
 $type = $_GET['type'];
-$search = $_GET['s'];
+$s = $_GET['s'];
+$ville = $_GET['v'];
 $ads;
 
-if($search == "") {
-    $ads = doQuery("SELECT * FROM $type");
-}
-else {
-    $ads = doQuery("SELECT * FROM $type WHERE nom LIKE '%$search%' OR description LIKE '%$search%' OR categorie LIKE '%$search%';");
-}
+    $ads = doQuery("SELECT * FROM $type WHERE (nom LIKE '%$s%' OR description LIKE '%$s%') AND (localisation LIKE '%$ville%');");
 
 echo json_encode($ads);
-
 
 ?>
