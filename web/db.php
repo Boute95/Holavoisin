@@ -2,9 +2,8 @@
 
 $dbh;
 
-function connectToDb() {
+function connectToDb($login, $pw) {
     try {
-	include("../login-db.php");
 	global $dbh;
 	$dbh = new PDO("mysql:host=localhost;dbname=holavoisin;charset=UTF8", $login, $pw);
     }

@@ -168,6 +168,7 @@ input[id=connection]:hover,
 }
 
 #form-chercher-bouton {
+    max-width: 300px;
     background-color: #9c619e;
     border: solid 2px #9c619e;
     color: #fff;
@@ -214,17 +215,13 @@ input[id=connection]:hover,
     width: 100%;
 }
 
-.form-chercher-button {
-    max-width: 300px;
-}
-
 .form-connexion {
     padding: 40px 60px;
 }
 
 
-/*****************/
-/* BODY CHERCHER */
+/************/
+/* CHERCHER */
 /*************************************************************/
 .card {
     height: 350px;

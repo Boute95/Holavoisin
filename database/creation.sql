@@ -11,7 +11,7 @@ mdp VARCHAR(100),
 email VARCHAR(100),
 imagePath VARCHAR(200),
 constraint pk_utilisateur primary key(id)
-);
+) DEFAULT CHARSET=utf8;
 
 create table service (
 id int AUTO_INCREMENT,
@@ -21,7 +21,7 @@ prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
 constraint pk_service primary key(id)
-);
+) DEFAULT CHARSET=utf8;
 
 create table objet(
 id int AUTO_INCREMENT,
@@ -32,4 +32,4 @@ prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
 constraint pk_objet primary key(id)
-);
+) DEFAULT CHARSET=utf8;

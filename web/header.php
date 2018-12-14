@@ -2,7 +2,8 @@
 
 session_start();
 include('db.php');
-connectToDb();
+include('../login-db.php');
+connectToDb($login, $pw);
 
 
 ?>
