@@ -109,7 +109,29 @@ body {
 .header-chercher{
     top: auto;
     bottom: auto;
-    height: 400px;
+    height: 600px;
+}
+
+.header-chercher h1 {
+    margin-bottom: 180px;
+}
+
+@media (min-width: 576px) {
+    .header-chercher {
+	height: 450px;
+    }
+    .header-chercher h1 {
+	margin-bottom: 140px;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-chercher {
+	height: 350px;
+    }
+    .header-chercher h1 {
+	margin-bottom: 60px;
+    }
 }
 
 .header-monCompte {
@@ -192,7 +214,6 @@ input[id=connection]:hover,
 }
 
 #form-chercher-bouton {
-    max-width: 300px;
     background-color: #9c619e;
     border: solid 2px #9c619e;
     color: #fff;
@@ -233,6 +254,11 @@ input[id=connection]:hover,
     right: 0;
     background-color: #ffffff20;
     box-shadow: 0 -5px 10px 0 #44444420;
+}
+
+.formulaire-chercher label {
+    color: #fff;
+    font-weight: normal;
 }
 
 .form-chercher-item {
