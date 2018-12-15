@@ -1,3 +1,7 @@
+<!---------------------------------------------------------------------------->
+<!--                               SCRIPT PHP                              -->
+<!---------------------------------------------------------------------------->
+
 <?php
 
 include("header.php");
@@ -43,100 +47,106 @@ $target_file = $target_dir . $nom . $idutilisateur . "." . $imageFileType;
 $uploadOk = 1;
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["image"]["tmp_name"]);
-  if($check !== false) {
-    $uploadOk = 1;
-  } else {
-    $uploadOk = 0;
-  }
-  // Check if file already exists
-  if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-  }
-  // Check file size
-  if ($_FILES["image"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-  }
-  // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-  }
-
-  if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-  } else {
-    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-      echo "The file ". $target_file . " has been uploaded.";
-      $req="UPDATE utilisateur SET imagePath = '$target_file' WHERE id = $idutilisateur";
-      $res = doQuery($req);
+    $check = getimagesize($_FILES["image"]["tmp_name"]);
+    if($check !== false) {
+	$uploadOk = 1;
     } else {
-      echo "Sorry, there was an error uploading your file.";
+	$uploadOk = 0;
     }
-  }
+    // Check if file already exists
+    if (file_exists($target_file)) {
+	echo "Sorry, file already exists.";
+	$uploadOk = 0;
+    }
+    // Check file size
+    if ($_FILES["image"]["size"] > 500000) {
+	echo "Sorry, your file is too large.";
+	$uploadOk = 0;
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+       && $imageFileType != "gif" ) {
+	echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	$uploadOk = 0;
+    }
+
+    if ($uploadOk == 0) {
+	echo "Sorry, your file was not uploaded.";
+	// if everything is ok, try to upload file
+    } else {
+	if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+	    echo "The file ". $target_file . " has been uploaded.";
+	    $req="UPDATE utilisateur SET imagePath = '$target_file' WHERE id = $idutilisateur";
+	    $res = doQuery($req);
+	} else {
+	    echo "Sorry, there was an error uploading your file.";
+	}
+    }
 }
+
 ?>
 
-<header class="container-fluid header-accueil">
+<!---------------------------------------------------------------------------->
+<!--                                  HTML                                 -->
+<!---------------------------------------------------------------------------->
 
-    <div class="container">
+<header class="container-fluid pt-5 header-monCompte">
 
-      <div class="row mx-auto mb-5 text-center justify-content-center">
-    	    <h2 class="nomUtilisateur my-auto mr-5"><?php echo "$prenom $nom" ?></h2>
-          <div class="photoProfile ml-5"
-          style="background-image: url('<?php echo $imagePath ?>')"></div>
-    	</div>
-
-	<div class="row mx-auto my-4 text-center">
-	    <h1 class="mx-auto">Editez votre profil</h1>
-	</div>
-
-	<div class= "row my-auto">
-
-	    <form class="formulaire mx-auto inscription-form" method="post">
-
-		<div class="row">
-
-		    <div class="col-6">
-
-			<label class="row">Ancien mot de passe</label>
-			<input class="row mb-2" type="password" name="ancienPassword" placeholder="Mot de passe">
-
-			<label class="row">Mot de passe</label>
-			<input class="row mb-2" type="password" name="password" placeholder="Mot de passe">
-
-			<label class="row">Adresse mail</label>
-			<input class="row mb-2" type="mail" name="mail" placeholder="Mail" value="<?php echo $email; ?>">
-
-		    </div>
-
-		    <div class="col-6">
-
-			<label class="row">Ville</label>
-			<input class="row mb-2" type="text" name="ville" placeholder="Ville" value="">
-
-			<label class="row">Adresse</label>
-			<input class="row mb-2" type="text" name="adresse" placeholder="Adresse" value="">
-
-      <label class="row">Image(s)</label>
-      <input class="row mb-2" type="file" name="image"/>
-
-		    </div>
-
-		</div>
-
-		<input class="row mt-4 mx-auto form-accueil-bouton" type="submit" name="inscription" id="inscription" value="Mettre à jour">
-
-	    </form>
-
-	</div>
-
+    <div class="row m-auto text-center justify-content-center">
+    	<h2 class="nomUtilisateur my-auto mr-5"><?php echo "$prenom $nom" ?></h2>
+        <div class="photoProfile ml-5"
+             style="background-image: url('<?php echo $imagePath ?>')"></div>
     </div>
 
 </header>
 
-<?php include("footer.php"); ?>
+
+<div class="container">
+    <div class= "row my-auto">
+	<form class="mx-auto form-monCompte" method="post">
+
+	    <div class="row mx-auto my-4 text-center">
+		<h1 class="mx-auto">Editez votre profil</h1>
+	    </div>
+	    
+	    <div class="row my-3 justify-content-center align-items-center">
+		<div class="col-6">
+		    <label>Ancien mot de passe</label>
+		    <input  type="password" name="ancienPassword" placeholder="Mot de passe">
+		</div>
+		<div class="col-6">
+		    <label>Mot de passe</label>
+		    <input type="password" name="password" placeholder="Mot de passe">
+		</div>
+	    </div>
+
+	    <div class="row my-3 justify-content-center align-items-center">
+		<label>Adresse mail</label>
+		<input type="mail" name="mail" placeholder="Mail" value="<?php echo $email; ?>">
+	    </div>
+	    
+	    <div class="row my-3 justify-content-center align-items-center">
+		<div class="col-6">
+		    <label>Ville</label>
+		    <input  type="text" name="ville" placeholder="Ville" value="">
+		</div>
+		<div class="col-6">
+		    <label>Adresse</label>
+		    <input type="text" name="adresse" placeholder="Adresse" value="">
+		</div>
+	    </div>
+
+	    <div class="row my-3 justify-content-center align-items-center">
+		<label>Image(s)</label>
+		<input type="file" name="image"/>
+	    </div>
+
+	    <div class="row my-3 justify-content-center">
+		<input class="mx-auto form-accueil-bouton" type="submit" name="inscription" id="inscription" value="Mettre à jour">
+	    </div>
+	    
+	</form>
+    </div>
+</div>
+
+    <?php include("footer.php"); ?>
