@@ -33,8 +33,9 @@ connectToDb($login, $pw);
 
 
 	<nav class="navbar navbar-expand-md navbar-dark"
-	     data-0="background-color: #ffffff20 !important;"
-	     data-200="background-color: #555;">
+	     data-40="background-color: rgba(255,255,255,0.125);"
+	     data-70="background-color: rgba(80,80,80,0.125);"
+	     data-100="background-color: rgba(80,80,80,1);">
 	    <div class="container">
 		<a class="navbar-brand" href="#">¡HolaVoisin!</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

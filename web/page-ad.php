@@ -14,7 +14,7 @@ include("header.php");
 
 <div class="container">
     
-    <div class="mt-4 p-4 rounded bg-white">
+    <div class="mt-4 p-5 rounded bg-white">
 
 	<div class="row m-3 mb-4">
 	    
