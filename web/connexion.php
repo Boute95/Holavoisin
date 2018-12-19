@@ -1,30 +1,40 @@
+
 <?php
 
 include("header.php");
 
-
-if(isset($_SESSION['identifiant'])) {
+if($isLogged) {
     header('location: accueil.php');
 }
 
-if(isset($_POST['identifiant']))
-    $identifiant = $_POST['identifiant'];
+if (isset($_POST['nouveauMembre'])) {
+    header('location: inscription.php');
+}
+
+
+$mail = "";
+$password = "";
+$idUser = "";
+
+if(isset($_POST['mail']))
+    $mail = $_POST['mail'];
 if(isset($_POST['password']))
     $password = md5($_POST['password']);
+
 $isUser = false;
 
-$req = "SELECT * FROM utilisateur WHERE nom = '$identifiant' AND mdp = '$password'";
+$req = "SELECT * FROM utilisateur WHERE email = '$mail' AND mdp = '$password'";
 $res = doQuery($req);
 
-foreach ($res as $tuple) {
+
+foreach($res as $tuple) {
     $isUser = true;
+    $idUser = $tuple['id'];
 }
 
 if($isUser) {
-    if(!isset($_SESSION['identifiant'])) {
-	$_SESSION['identifiant'] = $identifiant;
-    }
-    header("location: accueil.php?inscrit&{$_SESSION['identifiant']}");
+    $_SESSION['idUser'] = $idUser;
+    header("location: accueil.php?inscrit&{$res['prenom']}");
 }
 
 ?>
@@ -41,31 +51,24 @@ if($isUser) {
 
 	    <form class="formulaire mx-auto connexion-form" method="post">
 
-		<label class="row text-center">Identifiant ou adresse mail</label>
-		<input class ="row mb-3 mx-auto" type="text" name="identifiant" placeholder="Identifiant ou mail">
+		<label class="row text-center">Adresse mail</label>
+		<input class ="row mb-3 mx-auto" type="text" name="mail" placeholder="Mail">
 
 		<label class="row text-center">Mot de passe</label>
 		<input class="row mb-3 mx-auto" type="password" name="password" placeholder="Mot de passe">
-		<?php if((isset($_POST['identifiant']) || isset($_POST['password']))
+		<?php if((isset($_POST['mail']) || isset($_POST['password']))
 			 && !$isUser){
-		    echo "<p class='erreur-connexion'>Identifiant ou mot de passe incorrect</p>";
+		    echo "<p class='erreur-connexion'>Mail ou mot de passe incorrect</p>";
 		}
 		?>
-
-    <div class= "row mt-4">
-	<div class="col-6">
-	    <input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
-	</div>
-	<div class="col-6">
-	    <input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
-      </div>
-    </div>
-
-    <?php
-    if (isset($_POST['nouveauMembre'])) {
-      header('location: inscription.php');
-    }
-    ?>
+		<div class= "row mt-4">
+		    <div class="col-6">
+			<input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
+		    </div>
+		    <div class="col-6">
+			<input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
+		    </div>
+		</div>
 
 	    </form>
 
@@ -74,8 +77,6 @@ if($isUser) {
     </div>
 
 </header>
-
-
 
 
 <?php include("footer.php"); ?>

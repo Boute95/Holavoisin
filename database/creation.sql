@@ -1,6 +1,6 @@
 drop table if exists service;
-drop table if exists utilisateur;
 drop table if exists objet;
+drop table if exists utilisateur;
 
 
 create table utilisateur(
@@ -20,7 +20,9 @@ description VARCHAR(1000),
 prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
-constraint pk_service primary key(id)
+idVois int,
+constraint pk_service primary key(id),
+constraint fk_service_utilisateur foreign key(idVois) references utilisateur(id)
 ) DEFAULT CHARSET=utf8;
 
 create table objet(
@@ -31,5 +33,7 @@ typeVente VARCHAR(100) CHECK (typeVente IN('location', 'vente')),
 prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
-constraint pk_objet primary key(id)
+idVois int,
+constraint pk_objet primary key(id),
+constraint fk_objet_utilisateur foreign key(idVois) references utilisateur(id)
 ) DEFAULT CHARSET=utf8;

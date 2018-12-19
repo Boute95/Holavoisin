@@ -21,7 +21,8 @@ function printAds() {
 	    else {
 
 		for(var tuple of resQuery) {
-		    
+
+		    var id = tuple['id'];
 		    var img = tuple['imagePath'];
 		    var nom = tuple['nom'];
 		    var description = tuple['description'];
@@ -39,7 +40,8 @@ function printAds() {
 
 		    html +=
 	    		"<div class='col-12 col-lg-4 mb-5'>" +
-			"<a class='card mx-auto' style='max-width: 24rem;' href='#'>" +
+			"<a class='card mx-auto' style='max-width: 24rem;' href='" +
+			"page-ad.php?id=" + id + "'>" +
   			"<div class='card-img-top'>" +
 			"<div class='card-img-top-child' style='background-image: url(" +
 			img + ");'>" +

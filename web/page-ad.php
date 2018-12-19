@@ -2,6 +2,14 @@
 
 include("header.php");
 
+// Gets ad data
+$id = $_GET['id'];
+$adData = doQuery("SELECT * FROM objet WHERE id = $id");
+
+$isSameAuthor = false;
+if($isLogged && $adData['idVois'] == $_SESSION['utilisateur']) {
+    $isSameAuthor = true;
+}
 
 ?>
 
@@ -20,7 +28,13 @@ include("header.php");
 	    
 	    <div class="col-12 col-lg-7 justify-content-center">
 		<h2 class="text-center mb-3">Titre annonce</h2>
-		<img class=" d-block mx-auto border" height="250" src="./uploads/propositions/objets/1.jpg" alt="" />
+		<img class=" mb-5 d-block mx-auto border" height="250" src="./uploads/propositions/objets/1.jpg" alt="" />
+		<div class="row justify-content-center">
+		    <button class="mx-2 button-holavoisin button-vert">Demander</button>
+		    <?php if($isSameAuthor) { ?>
+			<button class="mx-2 button-holavoisin button-violet">Supprimer l'annonce</button>
+		    <?php } ?>
+		</div>
 	    </div>
 
 	    <div class="col-12 col-lg-5 justify-content-center">
@@ -29,7 +43,7 @@ include("header.php");
 
 	</div>
 
-	<div class="p-3 mt-2">
+	<div class="p-3 mt-4">
 	    <div class="row">
 		<h2>Qui propose ?</h2>
 	    </div>
@@ -41,7 +55,7 @@ include("header.php");
 	    </div>
 	</div>
 
-	<div class="row p-3 mt-2">
+	<div class="row p-3 mt-4">
 	    <h2>Description</h2>
 	    <p class="text-justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
 	</div>

@@ -3,11 +3,16 @@
 session_start();
 include('db.php');
 include('../login-db.php');
+include('utils.php');
 connectToDb($login, $pw);
+
+$isLogged = false;
+if(isset($_SESSION['idUser'])) {
+    $isLogged = true;
+ }
 
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -56,7 +61,7 @@ connectToDb($login, $pw);
 			<li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'proposer.php')){ echo 'active'; }?>">
 			    <a class="nav-link" href="proposer.php">Proposer</a>
 			</li>
-			<?php if(!isset($_SESSION['identifiant'])){ ?>
+			<?php if(!$isLogged) { ?>
 			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'connexion.php')){ echo 'active'; }?>">
 				<a class="nav-link" href="connexion.php">Connexion</a>
 			    </li>

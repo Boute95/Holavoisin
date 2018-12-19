@@ -34,7 +34,7 @@ body {
     top: 0;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: #fff !important;
     font-size: 40px;
 }
@@ -212,6 +212,19 @@ input[id=connection]:hover,
     color: #9c619e;
     text-decoration: none;
 }
+
+.button-violet {
+    background-color: #dd4050;
+    border: solid 2px #dd4050;
+    color: #fff;
+}
+
+.button-violet:hover {
+    background-color: #fff;
+    color: #dd4050;
+    text-decoration: none;
+}
+
 
 #form-chercher-bouton {
     background-color: #9c619e;
