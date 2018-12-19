@@ -456,12 +456,6 @@ button.continuer:hover {
   font-size: 44px;
 }
 
-.form-monCompte h1 {
-    font-size: 50px;
-    font-family: 'Annie Use Your Telescope';
-    color: #333;
-}
-
 .form-monCompte label {
     margin-bottom: 0;
     margin-right: 10px;
@@ -471,6 +465,10 @@ button.continuer:hover {
 .form-monCompte input[type="password"],
 .form-monCompte input[type="file"] {
     margin-right: 10px;
+}
+
+.card {
+    height: 300px
 }
 
 /***********/

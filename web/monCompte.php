@@ -10,6 +10,7 @@ if(!$isLogged) {
     header('location: accueil.php');
 }
 
+// Informations utilisateur //////////////////////////////////////////
 $idUser = $_SESSION['idUser'];
 $req = "SELECT * FROM utilisateur WHERE id='{$_SESSION['idUser']}'";
 $res = doQuery($req);
@@ -26,6 +27,12 @@ foreach($res as $tuple) {
     $imagePath = $tuple['imagePath'];
 }
 
+// Annonces proposées ///////////////////////////////////////////////
+$userAds;
+$userAds['service'] = doQuery("SELECT * FROM services WHERE idVois = $idUser AND disponible = FALSE");
+$userAds['objet'] = doQuery("SELECT * FROM objet WHERE idVois = $idUser AND disponible = FALSE");
+print_r($userAds['objet']);
+
 // Modification mot de passe ////////////////////////////////////////
 if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
     $ancienMdpSet = md5($_POST['ancienPassword']);
@@ -37,7 +44,7 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
 
 }
 
-// Modification du mail ////////////////////////////////////////
+// Modification du mail ///////////////////////////////////////////
 if(isset($_POST['mail'])) {
     
     $emailSet = $_POST['mail'];
@@ -118,14 +125,83 @@ if(isset($_POST['mail'])) {
 
 
 <div class="container">
-    <div class= "row my-auto">
-	<form class="mx-auto form-monCompte" method="post">
 
-	    <div class="row mx-auto my-4 text-center">
-		<h1 class="mx-auto">Editez votre profil</h1>
+    <div class="row mt-3">
+	<h2>Services proposées en cours d'utilisation</h2>
+    </div>
+
+    <div class="row mt-3">
+	
+	<?php foreach($userAds['service'] as $tuple) { ?>
+	    <div class='col-12 col-lg-4 mb-5'>
+		<a class='card mx-auto' style='max-width: 24rem;'
+		   href='<?php echo "page-ad.php?type=service&id={$tuple['id']}"; ?>'>
+  		    <div class='card-img-top'>
+			<div class='card-img-top-child'
+			     style='background-image:url(<?php echo $tuple['imagePath'];?>)'>
+			</div>
+		    </div>
+  		    <div class='card-body'>
+			<h5 class='card-title'><?php echo $tuple['nom']; ?></h5>
+    			<div class='card-text'>
+			    <div class='row mb-2 font-italic pb-2 border-bottom border-secondary'>
+				<div class='col-6'><?php echo $tuple['date']; ?></div>
+				<div class='col-6'><?php echo $tuple['localisation'];?></div>
+			    </div>
+			    <div class='row'>
+				<div class='mx-auto mt-2 mb-0 card-prix'>
+				    <?php echo $tuple['prix']; ?>€</div>
+			    </div>
+			</div>
+		    </div>
+		</a>
+	    </div>
+	<?php }	?>
+	
+    </div>
+
+    <div class="row mt-3">
+	<h2>Objets proposées en cours de location</h2>
+    </div>
+
+    <div class="row mt-3">
+	
+	<?php foreach($userAds['objet'] as $tuple) { ?>
+	    <div class='col-12 col-lg-4 mb-5'>
+		<a class='card mx-auto' style='max-width: 24rem;'
+		   href='<?php echo "page-ad.php?type=objet&id={$tuple['id']}"; ?>'>
+  		    <div class='card-img-top'>
+			<div class='card-img-top-child'
+			     style='background-image:url(<?php echo $tuple['imagePath'];?>)'>
+			</div>
+		    </div>
+  		    <div class='card-body'>
+			<h5 class='card-title'><?php echo $tuple['nom']; ?></h5>
+    			<div class='card-text'>
+			    <div class='row mb-2 font-italic pb-2 border-bottom border-secondary'>
+				<div class='col-6'><?php echo $tuple['date']; ?></div>
+				<div class='col-6'><?php echo $tuple['localisation'];?></div>
+			    </div>
+			    <div class='row'>
+				<div class='mx-auto mt-2 mb-0 card-prix'>
+				    <?php echo $tuple['prix']; ?>€</div>
+			    </div>
+			</div>
+		    </div>
+		</a>
+	    </div>
+	<?php }	?>
+	
+    </div>
+    
+    <div class= "row mt-3">
+	<form class="form-monCompte" method="post">
+
+	    <div class="row my-3">
+		<h2>Editez votre profil</h2>
 	    </div>
 	    
-	    <div class="row my-3 justify-content-center align-items-center">
+	    <div class="row my-3 align-items-center">
 		<div class="col-6">
 		    <label>Ancien mot de passe</label>
 		    <input  type="password" name="ancienPassword" placeholder="Mot de passe">
@@ -136,12 +212,12 @@ if(isset($_POST['mail'])) {
 		</div>
 	    </div>
 
-	    <div class="row my-3 justify-content-center align-items-center">
+	    <div class="row my-3  align-items-center">
 		<label>Adresse mail</label>
 		<input type="mail" name="mail" placeholder="Mail" value="<?php echo $email; ?>">
 	    </div>
 	    
-	    <div class="row my-3 justify-content-center align-items-center">
+	    <div class="row my-3  align-items-center">
 		<div class="col-6">
 		    <label>Ville</label>
 		    <input  type="text" name="ville" placeholder="Ville" value="">
@@ -152,17 +228,17 @@ if(isset($_POST['mail'])) {
 		</div>
 	    </div>
 
-	    <!-- <div class="row my-3 justify-content-center align-items-center">
+	    <!-- <div class="row my-3  align-items-center">
 		 <label>Image(s)</label>
 		 <input type="file" name="image"/>
 		 </div> -->
 
-	    <div class="row my-3 justify-content-center">
-		<input class="mx-auto form-accueil-bouton" type="submit" name="submit" id="inscription" value="Mettre à jour">
+	    <div class="row my-3">
+		<input class="form-accueil-bouton" type="submit" name="submit" id="inscription" value="Mettre à jour">
 	    </div>
 	    
 	</form>
     </div>
 </div>
 
-    <?php include("footer.php"); ?>
+<?php include("footer.php"); ?>
