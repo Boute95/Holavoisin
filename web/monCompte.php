@@ -31,7 +31,6 @@ foreach($res as $tuple) {
 $userAds;
 $userAds['service'] = doQuery("SELECT * FROM services WHERE idVois = $idUser AND disponible = FALSE");
 $userAds['objet'] = doQuery("SELECT * FROM objet WHERE idVois = $idUser AND disponible = FALSE");
-print_r($userAds['objet']);
 
 // Modification mot de passe ////////////////////////////////////////
 if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
