@@ -8,7 +8,7 @@ $s = $_GET['s'];
 $ville = $_GET['v'];
 $ads;
 
-    $ads = doQuery("SELECT * FROM $type WHERE (nom LIKE '%$s%' OR description LIKE '%$s%') AND (localisation LIKE '%$ville%');");
+    $ads = doQuery("SELECT * FROM $type WHERE disponible AND (nom LIKE '%$s%' OR description LIKE '%$s%') AND (localisation LIKE '%$ville%');");
 
 echo json_encode($ads);
 

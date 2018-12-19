@@ -10,6 +10,7 @@ nom VARCHAR(100),
 mdp VARCHAR(100),
 email VARCHAR(100),
 imagePath VARCHAR(200),
+cagnotte NUMERIC(10,2) DEFAULT 50,
 constraint pk_utilisateur primary key(id)
 ) DEFAULT CHARSET=utf8;
 
@@ -20,6 +21,7 @@ description VARCHAR(1000),
 prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
+disponible BOOLEAN,
 idVois int,
 constraint pk_service primary key(id),
 constraint fk_service_utilisateur foreign key(idVois) references utilisateur(id)
@@ -29,10 +31,10 @@ create table objet(
 id int AUTO_INCREMENT,
 nom VARCHAR(100),
 description VARCHAR(1000),
-typeVente VARCHAR(100) CHECK (typeVente IN('location', 'vente')),
 prix NUMERIC(6,0),
 localisation VARCHAR(100),
 imagePath VARCHAR(200),
+disponible BOOLEAN,
 idVois int,
 constraint pk_objet primary key(id),
 constraint fk_objet_utilisateur foreign key(idVois) references utilisateur(id)

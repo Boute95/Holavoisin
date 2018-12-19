@@ -213,13 +213,13 @@ input[id=connection]:hover,
     text-decoration: none;
 }
 
-.button-violet {
+.button-rouge {
     background-color: #dd4050;
     border: solid 2px #dd4050;
     color: #fff;
 }
 
-.button-violet:hover {
+.button-rouge:hover {
     background-color: #fff;
     color: #dd4050;
     text-decoration: none;

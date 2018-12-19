@@ -4,10 +4,13 @@ include("header.php");
 
 // Gets ad data
 $id = $_GET['id'];
-$adData = doQuery("SELECT * FROM objet WHERE id = $id");
+$type = $_GET['type'];
+$res = doQuery("SELECT idVois, $type.nom AS nomAd, utilisateur.nom, utilisateur.imagePath, $type.imagePath AS imgAd, description, prenom, prix  FROM $type, utilisateur WHERE idVois = utilisateur.id AND $type.id = $id");
+$adData = $res[0];
 
+// Test if the user is the same as the creator of the ad
 $isSameAuthor = false;
-if($isLogged && $adData['idVois'] == $_SESSION['utilisateur']) {
+if($isLogged && $adData['idVois'] == $_SESSION['idUser']) {
     $isSameAuthor = true;
 }
 
@@ -27,12 +30,23 @@ if($isLogged && $adData['idVois'] == $_SESSION['utilisateur']) {
 	<div class="row m-3 mb-4">
 	    
 	    <div class="col-12 col-lg-7 justify-content-center">
-		<h2 class="text-center mb-3">Titre annonce</h2>
-		<img class=" mb-5 d-block mx-auto border" height="250" src="./uploads/propositions/objets/1.jpg" alt="" />
-		<div class="row justify-content-center">
-		    <button class="mx-2 button-holavoisin button-vert">Demander</button>
-		    <?php if($isSameAuthor) { ?>
-			<button class="mx-2 button-holavoisin button-violet">Supprimer l'annonce</button>
+		<h2 class="text-center mb-3"><?php echo $adData["nomAd"]; ?></h2>
+		<img class=" mb-5 d-block mx-auto border" height="250" src="<?php echo $adData['imgAd']; ?>" alt="" />
+		<div class="text-center mx-auto mb-3"><?php echo $adData['prix']; ?>€</div>
+		<div class="row mb-3 justify-content-center">
+		    <?php if($isLogged) { ?>
+			<a class="mx-2 button-holavoisin button-vert" href="<?php echo "useAd.php?type=$type&id=$id&idSeller={$adData['idVois']}&prix={$adData['prix']}&idBuyer={$_SESSION['idUser']}";?>">
+			    <?php
+			    if($type == 'objet')
+				echo "Louer";
+			    else
+				echo "Demander le service";
+			    ?>
+			</a>
+		    <?php  } else { ?>
+			Vous devez etre connecté pour pouvoir répondre à une annonce
+		    <?php } if($isSameAuthor) { ?>
+			<a class="mx-2 button-holavoisin button-rouge" href="<?php echo "deleteAd.php?type=$type&id=$id"; ?>">Supprimer l'annonce</a>
 		    <?php } ?>
 		</div>
 	    </div>
@@ -48,9 +62,9 @@ if($isLogged && $adData['idVois'] == $_SESSION['utilisateur']) {
 		<h2>Qui propose ?</h2>
 	    </div>
 	    <div class="row mt-2 page-ad-voisin">
-		<div class="page-ad-img-voisin mr-3" style="background-image: url('./uploads/utilisateurs/leonardo-dicaprio.jpg')"></div>
+		<div class="page-ad-img-voisin mr-3" style="background-image: url('<?php echo $adData['imagePath']; ?>')"></div>
 		<div class="page-ad-voisin-name my-auto">
-		    <a href="#">Nom voisin</a>
+		    <a href="#"><?php echo $adData['prenom'] . ' ' . $adData['nom']; ?></a>
 		</div>
 	    </div>
 	</div>

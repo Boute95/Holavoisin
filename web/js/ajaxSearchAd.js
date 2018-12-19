@@ -41,7 +41,7 @@ function printAds() {
 		    html +=
 	    		"<div class='col-12 col-lg-4 mb-5'>" +
 			"<a class='card mx-auto' style='max-width: 24rem;' href='" +
-			"page-ad.php?id=" + id + "'>" +
+			"page-ad.php?type=" + type + "&id=" + id + "'>" +
   			"<div class='card-img-top'>" +
 			"<div class='card-img-top-child' style='background-image: url(" +
 			img + ");'>" +

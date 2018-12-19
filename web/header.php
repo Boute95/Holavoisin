@@ -7,10 +7,12 @@ include('utils.php');
 connectToDb($login, $pw);
 
 $isLogged = false;
+$cagnotteUser;
 if(isset($_SESSION['idUser'])) {
     $isLogged = true;
+    $userData = doQuery("SELECT cagnotte FROM utilisateur WHERE id = {$_SESSION['idUser']}");
+    $cagnotteUser = $userData[0]['cagnotte'];
  }
-
 
 ?>
 
@@ -78,6 +80,12 @@ if(isset($_SESSION['idUser'])) {
 			    <li class="nav-item <?php if( stristr(basename($_SERVER['REQUEST_URI']),'deconnexion.php')){ echo 'active'; }?>">
 				<a class="nav-link" href="deconnexion.php">Deconnexion</a>
 			    </li>
+
+			    <li class="nav-item d-flex text-white">
+				<div class="my-auto">
+				    Cagnotte : <?php echo $cagnotteUser; ?>€
+				</div>
+			    </li>			    
 
 			<?php } ?>
 

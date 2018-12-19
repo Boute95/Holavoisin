@@ -5,44 +5,46 @@ default,
 'Breton',
 MD5('1234'),
 'alexis.breton@etu.umontpellier.fr',
-'./uploads/utilisateurs/leonardo-dicaprio.jpg');
+'./uploads/utilisateurs/leonardo-dicaprio.jpg',
+DEFAULT);
 
 insert into utilisateur values(
 default,
 'Robert',
 'De Niro',
 MD5('1234'),
-'alexis.breton@etu.umontpellier.fr',
-'./uploads/utilisateurs/taxidriver.jpg');
+'alexis95150@gmail.com',
+'./uploads/utilisateurs/taxidriver.jpg',
+DEFAULT);
 
 insert into objet values(
 default,
 'iPhone5',
 'iPhone5 bon état, quelques rayures sur l écran et sur la coque',
-'vente',
-200,
+10,
 'Montpellier',
 './uploads/propositions/objets/1.jpg',
+TRUE,
 2);
 
 insert into objet values(
 default,
 'Vélo de ville',
 'Vélo de ville Décathlon très pratique pour se balader en ville, pneus, chaine et freins en bon état.',
- 'vente',
- 250,
+20,
  'Montpellier',
  './uploads/propositions/objets/2.jpg',
+  TRUE,	
  1);
  
 insert into objet values(
 default,
 'HP Probook 6470b',
 'Core i5 3e génération, HDD 500Gb, 8Gb de RAM, Windows 10. La carrosserie est abimée mais il reste parfaitement fonctionnel',
- 'vente',
- 180,
- 'Montpellier',
- './uploads/propositions/objets/3.jpg',
+12,
+'Montpellier',
+'./uploads/propositions/objets/3.jpg',
+TRUE,
  1);
 
 
@@ -53,6 +55,7 @@ default,
  10,
  'Paris',
  './uploads/propositions/services/1.jpg',
+  TRUE,
  1);
  
 insert into service values(
@@ -62,5 +65,6 @@ default,
  15,
  'Montpellier',
  './uploads/propositions/services/2.jpg',
+  TRUE,
  1);
  

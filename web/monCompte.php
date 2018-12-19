@@ -6,20 +6,19 @@
 
 include("header.php");
 
-if(!isset($_SESSION['identifiant'])) {
+if(!$isLogged) {
     header('location: accueil.php');
 }
 
-$req = "SELECT * FROM utilisateur WHERE nom='{$_SESSION['identifiant']}'";
+$idUser = $_SESSION['idUser'];
+$req = "SELECT * FROM utilisateur WHERE id='{$_SESSION['idUser']}'";
 $res = doQuery($req);
-$idutilisateur = -1;
 $mdp;
 $email;
 $prenom;
 $nom;
 $imagePath;
 foreach($res as $tuple) {
-    $idutilisateur = $tuple["id"];
     $mdp = $tuple['mdp'];
     $email = $tuple['email'];
     $prenom = $tuple['prenom'];
@@ -27,62 +26,79 @@ foreach($res as $tuple) {
     $imagePath = $tuple['imagePath'];
 }
 
-$ancienMdpSet = md5($_POST['ancienPassword']);
-$mdpSet = md5($_POST['password']);
-$emailSet = $_POST['mail'];
+// Modification mot de passe ////////////////////////////////////////
+if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
+    $ancienMdpSet = md5($_POST['ancienPassword']);
+    $mdpSet = md5($_POST['password']);
+    if(stristr($ancienMdpSet, $mdp)) {
+	$reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE id = $idUser'";
+	$resModifMdp = doQuery($reqModifMdp);
+    }
 
-if(stristr($ancienMdpSet, $mdp) && !empty($mdpSet)) {
-    $reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE nom = '{$_SESSION['identifiant']}'";
-    $resModifMdp = doQuery($reqModifMdp);
 }
 
-if(!empty($email)) {
-    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = '{$_SESSION['identifiant']}'";
+// Modification du mail ////////////////////////////////////////
+if(isset($_POST['mail'])) {
+    
+    $emailSet = $_POST['mail'];
+    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = id = $idUser'";
     $resModifEmail = doQuery($reqModifEmail);
+    
 }
 
-$target_dir = "../web/uploads/utilisateurs/";
-$imageFileType = strtolower(pathinfo(basename($_FILES["image"]["name"]),PATHINFO_EXTENSION));
-$target_file = $target_dir . $nom . $idutilisateur . "." . $imageFileType;
-$uploadOk = 1;
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["image"]["tmp_name"]);
-    if($check !== false) {
-	$uploadOk = 1;
-    } else {
-	$uploadOk = 0;
-    }
-    // Check if file already exists
-    if (file_exists($target_file)) {
-	echo "Sorry, file already exists.";
-	$uploadOk = 0;
-    }
-    // Check file size
-    if ($_FILES["image"]["size"] > 500000) {
-	echo "Sorry, your file is too large.";
-	$uploadOk = 0;
-    }
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-       && $imageFileType != "gif" ) {
-	echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	$uploadOk = 0;
-    }
+// Modification de l'image ////////////////////////////////////////
+/* if(isset($_POST['image'])) {
+ *     
+ *     $imageSet = $_FILES["image"];
+ *     print($_FILES['image']);
+ *     $target_dir = "../web/uploads/utilisateurs/";
+ *     $imageFileType = strtolower(pathinfo(basename($imageSet["name"]),PATHINFO_EXTENSION));
+ *     $target_file = $target_dir . $idUser . "." . $imageFileType;
+ *     $uploadOk = 1;
+ *     // Check if image file is an actual image or fake image
+ *     if(isset($_POST["submit"])) {
+ * 	$check = getimagesize($imageSet["tmp_name"]);
+ * 	if($check !== false) {
+ * 	    $uploadOk = 1;
+ * 	} else {
+ * 	    $uploadOk = 0;
+ * 	}
+ * 	// Check if file already exists
+ * 	if (file_exists($target_file)) {
+ * 	    echo "Sorry, file already exists.";
+ * 	    $uploadOk = 0;
+ * 	}
+ * 	// Check file size
+ * 	if ($imageSet["size"] > 500000) {
+ * 	    echo "Sorry, your file is too large.";
+ * 	    $uploadOk = 0;
+ * 	}
+ * 	// Allow certain file formats
+ * 	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+ * 	   && $imageFileType != "gif" ) {
+ * 	    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+ * 	    $uploadOk = 0;
+ * 	}
+ * 
+ * 	if ($uploadOk == 0) {
+ * 	    echo "Sorry, your file was not uploaded.";
+ * 	    // if everything is ok, try to upload file
+ * 	} else {
+ * 	    if (move_uploaded_file($imageSet["tmp_name"], $target_file)) {
+ * 		echo "The file ". $target_file . " has been uploaded.";
+ * 		$req="UPDATE utilisateur SET imagePath = '$target_file' WHERE id = $idUser";
+ * 		$res = doQuery($req);
+ * 	    } else {
+ * 		echo "Sorry, there was an error uploading your file.";
+ * 	    }
+ * 	}
+ *     }
+ * 
+ * }
+ *  */
 
-    if ($uploadOk == 0) {
-	echo "Sorry, your file was not uploaded.";
-	// if everything is ok, try to upload file
-    } else {
-	if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-	    echo "The file ". $target_file . " has been uploaded.";
-	    $req="UPDATE utilisateur SET imagePath = '$target_file' WHERE id = $idutilisateur";
-	    $res = doQuery($req);
-	} else {
-	    echo "Sorry, there was an error uploading your file.";
-	}
-    }
-}
+
+
 
 ?>
 
@@ -136,13 +152,13 @@ if(isset($_POST["submit"])) {
 		</div>
 	    </div>
 
-	    <div class="row my-3 justify-content-center align-items-center">
-		<label>Image(s)</label>
-		<input type="file" name="image"/>
-	    </div>
+	    <!-- <div class="row my-3 justify-content-center align-items-center">
+		 <label>Image(s)</label>
+		 <input type="file" name="image"/>
+		 </div> -->
 
 	    <div class="row my-3 justify-content-center">
-		<input class="mx-auto form-accueil-bouton" type="submit" name="inscription" id="inscription" value="Mettre à jour">
+		<input class="mx-auto form-accueil-bouton" type="submit" name="submit" id="inscription" value="Mettre à jour">
 	    </div>
 	    
 	</form>
