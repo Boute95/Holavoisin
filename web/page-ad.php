@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *
+ */
+
 include("header.php");
 
 // Gets ad data

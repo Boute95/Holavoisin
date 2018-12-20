@@ -1,5 +1,13 @@
-
 <?php
+
+/**
+ * @author Meriem Ameraoui
+ * @author Alexis Breton
+ *
+ * Page du formulaire de connection.
+ *
+ */
+
 
 include("header.php");
 

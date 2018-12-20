@@ -1,4 +1,16 @@
-<?php include("header.php"); ?>
+<?php
+
+/**
+ * @author Meriem Ameraoui
+ * @author Alexis Breton
+ *
+ * Page d'accueil du site
+ *
+ */
+
+include("header.php");
+
+?>
 
 
 <header class="container-fluid header-accueil">
