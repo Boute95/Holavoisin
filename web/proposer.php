@@ -1,5 +1,13 @@
 <?php
 include("header.php");
+/**
+  *@author Meriem Ameraoui.
+  *@author Alexis Breton.
+  *
+  *La page qui permet a l'utilisateur connecte, de proposer
+  * une annonce.
+  *
+*/
 ?>
 
 <header class="container-fluid header-accueil">

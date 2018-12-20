@@ -1,4 +1,13 @@
-<?php include("header.php"); ?>
+<?php include("header.php");
+/**
+  *@author Meriem Ameraoui.
+  *@author Alexis Breton.
+  *
+  *La page avec les informations de l'utilisateur connecter
+  * et posibilite de modifier ou ajouter des informations.
+  *
+*/
+?>
 
 <header class="container-fluid header-accueil">
 

@@ -1,6 +1,5 @@
 <?php include("header.php"); ?>
 
-
 <header class="container-fluid header-accueil">
 
     <div class="container">
