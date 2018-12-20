@@ -1,12 +1,21 @@
 <?php
+
 include("header.php");
+
+
+/**
+ * @author Meriem Ameraoui
+ * @author Alexis Breton
+ *
+ * Page de recherche d'annonce.
+ *
+ */
+
 ?>
 
 <header class="container-fluid header-chercher text-center">
-    
 
     <h1>Rechercher un bien ou un service</h1>
-
     
     <div class="row formulaire-chercher text-center px-3 px-lg-5 py-4">
 	

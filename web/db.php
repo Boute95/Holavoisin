@@ -1,7 +1,18 @@
 <?php
 
+/**
+ * @author Alexis Breton
+ *
+ * Script contenant quelques fonctions utiles liées à la BDD.
+ *
+ */
+
+
 $dbh;
 
+/**
+ * Se connecte a la BDD.
+ */
 function connectToDb($login, $pw) {
     try {
 	global $dbh;
@@ -12,7 +23,11 @@ function connectToDb($login, $pw) {
     }
 }
 
-
+/**
+ * Effectue une requete.
+ * @param sql Requete SQL sous forme de chaine de caractères.
+ * @return Tableau associatif du résultat de la requete.
+ */
 function doQuery($sql) {
     global $dbh;
     if($dbh) {

@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @author Meriem Ameraoui
+ *
+ * Script qui effectue les requetes lors d'une utilisation d'une annonce.
+ *
+ */
+
 include "header.php";
 $id = $_GET['id'];
 $type = $_GET['type'];
