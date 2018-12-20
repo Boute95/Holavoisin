@@ -34,9 +34,9 @@ default,
 20,
  'Montpellier',
  './uploads/propositions/objets/2.jpg',
-  TRUE,	
+  TRUE,
  1);
- 
+
 insert into objet values(
 default,
 'HP Probook 6470b',
@@ -47,6 +47,45 @@ default,
 TRUE,
  1);
 
+ insert into objet values(
+ default,
+ 'HP Probook 6470b',
+ 'Core i5 3e génération, HDD 500Gb, 8Gb de RAM, Windows 10. La carrosserie est abimée mais il reste parfaitement fonctionnel',
+ 12,
+ 'Montpellier',
+ './uploads/propositions/objets/3.jpg',
+ TRUE,
+  1);
+
+  insert into objet values(
+  default,
+  'Aspirateur',
+  'Dyson Cyvlone V10 Total Clean',
+  12,
+  'Montpellier',
+  './uploads/propositions/objets/4.jpeg',
+  TRUE,
+   1);
+
+   insert into objet values(
+   default,
+   'four',
+   'Moulinex',
+   12,
+   'Nime',
+   './uploads/propositions/objets/5.jpeg',
+   TRUE,
+    1);
+
+    insert into objet values(
+    default,
+    'Matelas',
+    'Matelats mousse 90x190',
+    12,
+    'Paris',
+    './uploads/propositions/objets/6.jpeg',
+    TRUE,
+     1);
 
 insert into service values(
 default,
@@ -57,7 +96,17 @@ default,
  './uploads/propositions/services/1.jpg',
   TRUE,
  1);
- 
+
+insert into service values(
+default,
+'Aide aux devoirs physique',
+'Étudiant en licence de physique, je propose une aide aux devoirs à domicile sur cette matière jusqu au lycée',
+ 10,
+ 'Montpellier',
+ './uploads/propositions/services/3.jpg',
+  TRUE,
+ 2);
+
 insert into service values(
 default,
 'Ménage',
@@ -67,4 +116,3 @@ default,
  './uploads/propositions/services/2.jpg',
   TRUE,
  1);
- 

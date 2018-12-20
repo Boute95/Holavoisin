@@ -63,7 +63,7 @@ if($isUser) {
 		?>
 		<div class= "row mt-4">
 		    <div class="col-6">
-			<input class="mx-auto form-accueil-bouton" type="submit" id="connection" value="Connection">
+			<input class="mx-auto form-accueil-bouton" type="submit" id="connetion" value="Connetion">
 		    </div>
 		    <div class="col-6">
 			<input class="mx-auto form-accueil-bouton" type="submit" name="nouveauMembre" id="nouveauMembre" value="Nouveau Membre?">
