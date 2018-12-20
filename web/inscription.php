@@ -2,10 +2,8 @@
 
 include("header.php");
 
-session_start();
-
-if(isset($_POST['identifiant']))
-    $identifiant = $_POST['identifiant'];
+if(isset($_POST['nom']))
+    $nom = $_POST['nom'];
 if(isset($_POST['password']))
     $password = md5($_POST['password']);
 if(isset($_POST['mail']))
@@ -18,14 +16,14 @@ $isUser = false;
 $inscriptionOk = false;
 
 if (isset($_POST["inscription"])
-    && !empty($identifiant)
+    && !empty($nom)
     && !empty($password)
     && !empty($mail)
     && !empty($ville)) {
     $inscriptionOk = true;
 }
 
-$reqtest = "SELECT * FROM utilisateur WHERE nom='$identifiant' OR email='$mail'; ";
+$reqtest = "SELECT * FROM utilisateur WHERE email='$mail'; ";
 $restest = doQuery($reqtest);
 
 foreach($restest as $tuple){
@@ -33,7 +31,7 @@ foreach($restest as $tuple){
 }
 
 if(!$isUser && $inscriptionOk){
-    $req = "INSERT INTO utilisateur(nom,mdp,email) values ('$identifiant','$password','$mail');";
+    $req = "INSERT INTO utilisateur(nom,mdp,email) values ('$nom','$password','$mail');";
     $res = doQuery($req);
     header('location: accueil.php?inscrit');
 
@@ -69,8 +67,8 @@ if(!$isUser && $inscriptionOk){
 
 		    <div class="col-6">
 
-			<label class="row">Identifiant*</label>
-			<input class ="row mb-2" type="text" name="identifiant" placeholder="Identifiant">
+			<label class="row">Nom*</label>
+			<input class ="row mb-2" type="text" name="nom" placeholder="Nom">
 
 			<label class="row">Mot de passe*</label>
 			<input class="row mb-2" type="password" name="password" placeholder="Mot de passe">
