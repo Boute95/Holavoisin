@@ -35,7 +35,7 @@ if($isLogged && $adData['idVois'] == $_SESSION['idUser']) {
 		<div class="text-center mx-auto mb-3"><?php echo $adData['prix']; ?>€</div>
 		<div class="row mb-3 justify-content-center">
 		    <?php if($isLogged) { ?>
-			<a class="mx-2 button-holavoisin button-vert" href="<?php echo "useAd.php?type=$type&id=$id&idSeller={$adData['idVois']}&prix={$adData['prix']}&idBuyer={$_SESSION['idUser']}";?>">
+			<a class="mx-2 button-holavoisin button-vert" href="<?php echo "applications/useAd.php?type=$type&id=$id&idSeller={$adData['idVois']}&prix={$adData['prix']}&idBuyer={$_SESSION['idUser']}";?>">
 			    <?php
 			    if($type == 'objet')
 				echo "Louer";
@@ -46,7 +46,7 @@ if($isLogged && $adData['idVois'] == $_SESSION['idUser']) {
 		    <?php  } else { ?>
 			Vous devez etre connecté pour pouvoir répondre à une annonce
 		    <?php } if($isSameAuthor) { ?>
-			<a class="mx-2 button-holavoisin button-rouge" href="<?php echo "deleteAd.php?type=$type&id=$id"; ?>">Supprimer l'annonce</a>
+			<a class="mx-2 button-holavoisin button-rouge" href="<?php echo "applications/deleteAd.php?type=$type&id=$id"; ?>">Supprimer l'annonce</a>
 		    <?php } ?>
 		</div>
 	    </div>

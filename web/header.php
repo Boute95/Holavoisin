@@ -3,7 +3,7 @@
 session_start();
 include('db.php');
 include('../login-db.php');
-include('utils.php');
+include('../applications/utils.php');
 connectToDb($login, $pw);
 
 $isLogged = false;
