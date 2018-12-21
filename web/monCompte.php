@@ -3,7 +3,14 @@
 <!---------------------------------------------------------------------------->
 
 <?php
-
+/**
+  *@author Meriem Ameraoui.
+  *@author Alexis Breton.
+  *
+  *La page avec les informations de l'utilisateur connecter
+  * et posibilite de modifier ou ajouter des informations.
+  *
+*/
 include("header.php");
 
 if(!$isLogged) {
@@ -37,7 +44,7 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
     $ancienMdpSet = md5($_POST['ancienPassword']);
     $mdpSet = md5($_POST['password']);
     if(stristr($ancienMdpSet, $mdp)) {
-	$reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE id = $idUser'";
+	$reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE id = $idUser";
 	$resModifMdp = doQuery($reqModifMdp);
     }
 
@@ -45,16 +52,16 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
 
 // Modification du mail ///////////////////////////////////////////
 if(isset($_POST['mail'])) {
-    
+
     $emailSet = $_POST['mail'];
-    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = id = $idUser'";
+    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE id = $idUser";
     $resModifEmail = doQuery($reqModifEmail);
-    
+
 }
 
 // Modification de l'image ////////////////////////////////////////
 /* if(isset($_POST['image'])) {
- *     
+ *
  *     $imageSet = $_FILES["image"];
  *     print($_FILES['image']);
  *     $target_dir = "../web/uploads/utilisateurs/";
@@ -85,7 +92,7 @@ if(isset($_POST['mail'])) {
  * 	    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
  * 	    $uploadOk = 0;
  * 	}
- * 
+ *
  * 	if ($uploadOk == 0) {
  * 	    echo "Sorry, your file was not uploaded.";
  * 	    // if everything is ok, try to upload file
@@ -99,7 +106,7 @@ if(isset($_POST['mail'])) {
  * 	    }
  * 	}
  *     }
- * 
+ *
  * }
  *  */
 
@@ -130,7 +137,7 @@ if(isset($_POST['mail'])) {
     </div>
 
     <div class="row mt-3">
-	
+
 	<?php foreach($userAds['service'] as $tuple) { ?>
 	    <div class='col-12 col-lg-4 mb-5'>
 		<a class='card mx-auto' style='max-width: 24rem;'
@@ -156,7 +163,7 @@ if(isset($_POST['mail'])) {
 		</a>
 	    </div>
 	<?php }	?>
-	
+
     </div>
 
     <div class="row mt-3">
@@ -164,7 +171,7 @@ if(isset($_POST['mail'])) {
     </div>
 
     <div class="row mt-3">
-	
+
 	<?php foreach($userAds['objet'] as $tuple) { ?>
 	    <div class='col-12 col-lg-4 mb-5'>
 		<a class='card mx-auto' style='max-width: 24rem;'
@@ -190,16 +197,16 @@ if(isset($_POST['mail'])) {
 		</a>
 	    </div>
 	<?php }	?>
-	
+
     </div>
-    
+
     <div class= "row mt-3">
 	<form class="form-monCompte" method="post">
 
 	    <div class="row my-3">
 		<h2>Editez votre profil</h2>
 	    </div>
-	    
+
 	    <div class="row my-3 align-items-center">
 		<div class="col-6">
 		    <label>Ancien mot de passe</label>
@@ -215,7 +222,7 @@ if(isset($_POST['mail'])) {
 		<label>Adresse mail</label>
 		<input type="mail" name="mail" placeholder="Mail" value="<?php echo $email; ?>">
 	    </div>
-	    
+
 	    <div class="row my-3  align-items-center">
 		<div class="col-6">
 		    <label>Ville</label>
@@ -235,7 +242,7 @@ if(isset($_POST['mail'])) {
 	    <div class="row my-3">
 		<input class="form-accueil-bouton" type="submit" name="submit" id="inscription" value="Mettre à jour">
 	    </div>
-	    
+
 	</form>
     </div>
 </div>

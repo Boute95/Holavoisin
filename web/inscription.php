@@ -1,5 +1,9 @@
 <?php
-
+/**
+  *@author Meriem Ameraoui.
+  *
+  *La page inscription sert a inscrire un  nouveau membre.
+*/
 include("header.php");
 
 if(isset($_POST['nom']))

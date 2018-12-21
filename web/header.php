@@ -1,4 +1,13 @@
 <?php
+/**
+  *@author Meriem Ameraoui.
+  *@author Alexis Breton.
+  *
+  *Le header est inclu dans chaque page de l'application.
+  *la barre de navigation change en fonction de la page ou
+  *on est et si on est connecter ou pas.
+  *
+*/
 
 session_start();
 include('db.php');
@@ -85,7 +94,7 @@ if(isset($_SESSION['idUser'])) {
 				<div class="my-auto">
 				    Cagnotte : <?php echo $cagnotteUser; ?>€
 				</div>
-			    </li>			    
+			    </li>
 
 			<?php } ?>
 

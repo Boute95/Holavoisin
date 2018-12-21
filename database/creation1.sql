@@ -82,8 +82,7 @@ id_service int,
 id_objet int,
 date_consom datetime,
 constraint pk_avis primary key(id),
-constraint fk_utilisateur_avis foreign key (id_utilisateur) references utilisateur (id),
 constraint fk_service_avis foreign key (id_service) references service (id),
 constraint fk_objet_avis foreign key (id_objet) references objet (id),
-constraint fk_consommation_avis foreign key (date_consom) references consommation (date_conso)
+constraint fk_consommation_avis foreign key (id_utilisateur,date_consom) references consommation (id_utilisateur,date_conso)
 ) DEFAULT CHARSET=utf8;
