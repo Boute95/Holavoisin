@@ -54,7 +54,7 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
 if(isset($_POST['mail'])) {
 
     $emailSet = $_POST['mail'];
-    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = id = $idUser";
+    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE id = $idUser";
     $resModifEmail = doQuery($reqModifEmail);
 
 }
