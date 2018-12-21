@@ -44,7 +44,7 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
     $ancienMdpSet = md5($_POST['ancienPassword']);
     $mdpSet = md5($_POST['password']);
     if(stristr($ancienMdpSet, $mdp)) {
-	$reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE id = $idUser'";
+	$reqModifMdp = "UPDATE utilisateur SET mdp='$mdpSet' WHERE id = $idUser";
 	$resModifMdp = doQuery($reqModifMdp);
     }
 
@@ -54,7 +54,7 @@ if(isset($_POST['ancienPassword']) && isset($_POST['password'])) {
 if(isset($_POST['mail'])) {
 
     $emailSet = $_POST['mail'];
-    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = id = $idUser'";
+    $reqModifEmail = "UPDATE utilisateur SET email='$emailSet' WHERE nom = id = $idUser";
     $resModifEmail = doQuery($reqModifEmail);
 
 }
