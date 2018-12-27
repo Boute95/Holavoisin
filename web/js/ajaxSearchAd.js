@@ -2,9 +2,12 @@ function printAds() {
 
     var ajax = new XMLHttpRequest();
     var type = $("input[name='type']:checked").val();
-    console.log(type);
     var ville = $('#ville').val();
     var search = $('#search').val();
+    console.log(type);
+    console.log(ville);
+    console.log(search);
+
     
     ajax.onreadystatechange = function() {
 	

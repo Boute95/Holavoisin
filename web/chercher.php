@@ -59,7 +59,19 @@ include("header.php");
 
 
 <script>
+
  $(document).ready(function() {
+     
+     let urlParams = new URLSearchParams(window.location.search);
+     if(urlParams.has('ville')) {
+	 $('#ville').val(urlParams.get('ville'));
+     }
+
+     if(urlParams.has('mot-clef')) {
+	 $('#search').val(urlParams.get('mot-clef'));
+     }
+     
      printAds();
+     
  })
 </script>

@@ -25,29 +25,25 @@ include("header.php");
 
 	    <div class="col-12 col-lg-6">
 		<div class="formulaire mx-auto">
-		    <form method="post" action="">
+		    <form method="get" action="chercher.php">
 			<label class="row">Ville</label>
-			<select class="row mb-2 form-accueil-item" type="text" id="ville" name="ville" placeholder="">
-		    	    <option value="montpellier">Montpellier</option>
-		    	    <option value="paris">Paris</option>
-		    	    <option value="nice">Nice</option>
-			</select>
+			<input class="row mb-2 form-accueil-item" type="text" name="ville" placeholder="Ville">
 
-			<label class="row">Catégorie</label>
-			<select class="row mb-2 form-accueil-item" type="text" id="catégorie" name="catégorie" placeholder="???">
-		    	    <option value="montpellier">Montpellier</option>
-		    	    <option value="paris">Paris</option>
-		    	    <option value="nice">Nice</option>
-			</select>
+			<label class="row">Mot-clef</label>
+			<input class="row mb-2 form-accueil-item" type="text" name="mot-clef" placeholder="Nom, catégorie, ...">
 
 			<div class= "row mt-4">
-		    	    <div class="col-6">
-			    	<input class="mx-auto form-accueil-bouton" type="submit" id="chercher" value="Chercher">
-			    </div>
-			    <div class="col-6">
-			  	<input class="mx-auto form-accueil-bouton" type="submit" id="proposer" value="Proposer">
-			    </div>
+			    <input class="col-12 mx-auto form-accueil-bouton" type="submit" id="chercher" value="Chercher">
 			</div>
+
+			<div class="row mt-4 text-dark justify-content-center">Ou</div>
+			
+			<div class="row mt-4">
+			    <a class="col-12 mx-auto button-holavoisin button-violet text-center" id="proposer" href="./proposer.php">
+				Proposer
+			    </a>
+			</div>
+			
 		    </form>
 		</div>
 
